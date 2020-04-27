@@ -49,7 +49,7 @@ Hay muchas formas de configurar SELinux para proteger el sistema. Las más comun
 
 Para saber con qué configuración se ejecuta el sistema, basta con consultar el archivo **/etc/sysconfig/selinux**. El archivo contendrá una sección donde se indicará si SELinux se encuentra en modo enforcing, permissive o disabled, y qué política se debería cargar targeted, minimum o mls .
 
-[Ejemplo del fichero selinux](./img/etc_sysconfig_selinux.png)
+[Ejemplo del fichero selinux](./img/etc_sysconfig_selinuxx.png)
 
 - **enforcing**: comprueba las reglas y hace que se cumplan forzosamente
 - **permissive**: solamente deja registro de las reglas que no se han cumplido
