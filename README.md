@@ -10,8 +10,9 @@
   + Información básica
   + Introducción
   + Arquitectura
-    + Como funciona
-    + Que estructura usa
+    + Funcionamiento 
+    + Estructura
+      + Modos de operación 
   + Configuración
   + Comandos
 + Proceso Práctico
@@ -43,9 +44,7 @@ SELinux asigna una etiqueta a todo. Mediante el uso de estas, se establecen rela
 user:role:type:level
 ```
 
-El level es opcional y el tipo es el aspecto más importante de la **politica específica**. El user, el role y el level se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**.
-
-
+El level es opcional y el type es el aspecto más importante de la **politica específica**. El user, el role y el level se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**.
 
 
 #### Arquitectura
@@ -64,12 +63,21 @@ Ejemplo:
 
 3. Envía una solicitud al server de seguridad, que analiza el contexto de seguridad y luego, permite o niega el acceso.
 
-#### Arquitectura
+#### Como es su estructura
 
 SELinux es un LSM(Linux Security Modules), es decir, un **Modulo de Seguridad** de Linux y por lo tanto se encuentra integrado en el Kernel, de esta manera, obtiene acceso directo a todas ls operaciones a nivel de Seguridad.
 
 **Las reglas DAC se aplican primero que las reglas de SELinux**
 
+##### Modos de operación
+
+SELinux puede trabajar en tres modos de configuración:
+
+1. **Disabled**: No carga el conjunto de políticas definidas y tampoco realiza el etiquetado de los objetos. No se recomienda utilizar este modo,ya que si más adelante se pretende activar SELinux, este puede caer en un estado de inconsistencia de las reglas y políticas en el caso de haber creado archivos, directorios, procesos o servicios instalados que no están etiquetados.
+
+2. **Permissive**: Carga las políticas definidas y registra las acciones en el archivo log (depende la configuración), sin embargo, no realiza ninguna acción de denegación. Este modo se suele utilizar para diseñar y depurar políticas, pero no se recomienda para entornos de producción.
+
+3. **Enforcing**: Carga las políticas definidas y permite o niega el acceso a objetos del sistema. Este es el modo que recomiendan para entornos de producción.
 
 
 
@@ -83,10 +91,6 @@ Hay muchas formas de configurar SELinux para proteger el sistema. Las más comun
 Para saber con qué configuración se ejecuta el sistema, basta con consultar el archivo **/etc/sysconfig/selinux**. El archivo contendrá una sección donde se indicará si SELinux se encuentra en modo enforcing, permissive o disabled, y qué política se debería cargar targeted, minimum o mls .
 
 [Ejemplo del fichero selinux](./img/etc_sysconfig_selinuxx.png)
-
-- **enforcing**: comprueba las reglas y hace que se cumplan forzosamente
-- **permissive**: solamente deja registro de las reglas que no se han cumplido
-- **disabled**: SELinux deshabilitado
 
 - **targeted**: todos los processos están protegidos
 - **minimum**: solo los procesos seleccionados están protegidos. 
