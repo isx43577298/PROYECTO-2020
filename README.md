@@ -52,7 +52,7 @@ El level es opcional y el type es el aspecto más importante de la **politica es
 #### Como funciona
 
 SELinux utiliza la aplicación del tipo de etiqueta para aplicar cierta politica definida en el sistema, es decir, las politicas de SELinux definen si un proceso que se ejecuta con cierto tipo de etiqueta puede acceder a un archivo que tiene un determinado tipo de etiqueta.
-El proceso de etiquetado se realiza desde el momento de la instal·lación y una vez que SELinux se ejecuta por primera vez. Por defecto ya existe un conjunto de políticas básicas predefinidas en el sistema, las cuales se aplican en el momento de arranque y durante el tiempo que el sistema se encuentre en funcionamiento.
+En el caso de CENTOS y RedHat el proceso de etiquetado se realiza desde el momento de la instal·lación y una vez que SELinux se ejecuta por primera vez . Por defecto ya existe un conjunto de políticas básicas predefinidas en el sistema, las cuales se aplican en el momento de arranque y durante el tiempo que el sistema se encuentre en funcionamiento.
 
 Ejemplo:
 
