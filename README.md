@@ -5,19 +5,19 @@
 
 ## INDEX
 
-+ Información sobre el proyecto
-+ Documentación
-  + Información básica
-  + Introducción
-  + Arquitectura
-    + Funcionamiento 
-    + Estructura
-      + Modos de operación 
-  + Configuración
-  + Comandos
-+ Proceso Práctico
-  + Creación de imagen docker
-  + Implementación práctica 
++ [Información sobre el proyecto](#Información sobre el proyecto)
++ [Documentación](#Documentación)
+  + [Información básica](#Información básica: Definición de SELinux)
+  + [Introducción](#Introducción para entender mejor SELinux)
+  + [Arquitectura](#Arquitectura)
+    + [Funcionamiento](#Como funciona) 
+    + [Estructura](#Como es su estructura)
+      + [Modos de operación](#Modos de operación) 
+  + [Configuración](#Como se configura y que ficheros utiliza)
+  + [Comandos](#Comandos)
++ [Proceso Práctico](#Proceso Práctico)
+  + [Creación de imagen docker](#Imagen Docker)
+  + [Implementación práctica](#Implementación práctica)
 
 ### Informació sobre el proyecto
 
@@ -81,22 +81,26 @@ SELinux puede trabajar en tres modos de configuración:
 
 
 
-#### Como se configura y que ficheros usa
+#### Como se configura y que ficheros utiliza
 
 Hay muchas formas de configurar SELinux para proteger el sistema. Las más comunes son:
 
-- **Politica específica** : es la opcion predeterminada y comprende una serie de procesos, tares y servicios.
-- **Seguridad de varios niveles (MLS)**: es muy compleja y, generalmente, solo la utilizan los organismo gubernamentales
+- **Politica específica** : es la opcion predeterminada y comprende una serie de procesos, tareas y servicios.
+- **Seguridad de varios niveles (MLS)**: es muy compleja y, generalmente, solo la utilizan los organismo gubernamentales.
 
 Para saber con qué configuración se ejecuta el sistema, basta con consultar el archivo **/etc/sysconfig/selinux**. El archivo contendrá una sección donde se indicará si SELinux se encuentra en modo enforcing, permissive o disabled, y qué política se debería cargar targeted, minimum o mls .
 
-[Ejemplo del fichero selinux](./img/etc_sysconfig_selinuxx.png)
+[Ejemplo del fichero /etc/sysconfig/selinux](./img/etc_sysconfig_selinuxx.png)
 
-- **targeted**: todos los processos están protegidos
-- **minimum**: solo los procesos seleccionados están protegidos. 
-- **mls**: protección de seguridad multinivel.
+1. **targeted**: todos los processos están protegidos
+2. **minimum**: solo los procesos seleccionados están protegidos. 
+3. **mls**: protección de seguridad multinivel.
 
+**El archivo /etc/sysconfig/selinux contiene un enlace simbólico al archivo de configuración real, /etc/selinux/config.**
 
+El directorio /etc/selinux/ es la ubicación principal para todos los archivos de políticas y también del archivo de configuración principal.
+
+[Contenido del directorio /etc/selinux](./img/etc_selinux.png)
 
 
 #### Comandos
