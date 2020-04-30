@@ -5,21 +5,21 @@
 
 ## INDEX
 
-+ [Información sobre el proyecto](#Información sobre el proyecto)
++ [Información sobre el proyecto](#Información-sobre-el-proyecto)
 + [Documentación](#Documentación)
-  + [Información básica](#Información básica: Definición de SELinux)
-  + [Introducción](#Introducción para entender mejor SELinux)
+  + [Información básica](#Información-básica:-Definición-de-SELinux)
+  + [Introducción](#Introducción-para-entender-mejor-SELinux)
   + [Arquitectura](#Arquitectura)
-    + [Funcionamiento](#Como funciona) 
-    + [Estructura](#Como es su estructura)
-      + [Modos de operación](#Modos de operación) 
-  + [Configuración](#Como se configura y que ficheros utiliza)
+    + [Funcionamiento](#Como-funciona) 
+    + [Estructura](#Como-es-su-estructura)
+      + [Modos de operación](#Modos-de-operación) 
+  + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
-+ [Proceso Práctico](#Proceso Práctico)
-  + [Creación de imagen docker](#Imagen Docker)
-  + [Implementación práctica](#Implementación práctica)
++ [Proceso Práctico](#Proceso-Práctico)
+  + [Creación de imagen docker](#Imagen-Docker)
+  + [Implementación práctica](#Implementación-práctica)
 
-### Informació sobre el proyecto
+### Información sobre el proyecto
 
 El proyecto consistirá en la explicación del módulo de seguridad para el kernel de Linux, llamado **SELinux**, que proporciona el mecanismo para soportat políticas de seguridad para el acceso a aplicaciones, procesos y archivos del sistema.
 
