@@ -7,7 +7,7 @@
 
 + [Información sobre el proyecto](#Información-sobre-el-proyecto)
 + [Documentación](#Documentación)
-  + [Información básica](#Información-básica:-Definición-de-SELinux)
+  + [Información básica](#Información-básica)
   + [Introducción](#Introducción-para-entender-mejor-SELinux)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona) 
@@ -25,7 +25,7 @@ El proyecto consistirá en la explicación del módulo de seguridad para el kern
 
 ### Documentación
 
-#### Información básica: Definición de SELinux
+#### Información básica
 
 SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sistemas Linux. Fue integrado a la rama principal del núcleo de Linux desde la versión 2.6, el 8 de agosto de 2003.
 
@@ -105,9 +105,11 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 #### Comandos
 
+[Comando seinfo](./aux/seinfo.md)
 
+[Comando getsebool](./aux/getsebool.md)
 
-
+[Comando semodule](./aux/semodule.md)
 
 ### Proceso Práctico
 
