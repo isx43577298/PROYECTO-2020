@@ -117,4 +117,28 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 ### Proceso Práctico
 
+#### Imagen Docker
+
+[Ficheros de la imagen docker](./docker)
+
+Proceso para la instal·lación de SELinux en un docker fedora:27
+
+1. Buscar los paquetes necesarios
+
+```
+[gustavo@localhost ~]$ rpm -qa | grep selinux
+libselinux-utils-2.8-6.fc29.x86_64
+libselinux-2.8-6.fc29.x86_64
+selinux-policy-targeted-3.14.2-65.fc29.noarch
+selinux-policy-3.14.2-65.fc29.noarch
+python3-libselinux-2.8-6.fc29.x86_64
+```
+
+2. Instalar los paquetes
+
+```
+dnf -y install policycoreutils policycoreutils-python selinux-policy selinux-policy-targeted libselinux-utils setroubleshoot-server setools setools-console mcstrans
+```
+
+[ En proceso...]
 
