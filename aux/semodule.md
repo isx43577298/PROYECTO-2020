@@ -1,10 +1,8 @@
 # COMANDO: SEMODULE
 
-Gestiona módulos de política de SELinux.
+Herramienta que gestiona módulos de política de SELinux.
 
-## Información
-
-### Ejemplos
+## Ejemplos
 
 ```
 # Listar modulos de SELinux (añadimos | head para que se muestren los 10 primeros)

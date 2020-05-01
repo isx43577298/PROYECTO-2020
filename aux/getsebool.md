@@ -1,12 +1,12 @@
-# COMANDO: GETSEBOOL
+# COMANDO: GETSEBOOL i SETSEBOOL
 
-Obtiene valores booleanos de SELinux
+- **Getsebool**: Muestra todos los booleanos, tanto los activos(on) como los inactivos(off)
+- **Setsebool**: Manipula el estado de los booleanos
+
 
 ## Información
 
-Los booleanos son valores concretos de las políticas SELinux que pueden ser cambiados en tiempo de ejecución sin tener que manipular una política definida. Es útil para modificar elementos o acciones concretas en tiempo de ejecución. 
-
-Los comandos para visualizar/manipular booleanos son getsebool y setsebool.
+Los booleanos son valores concretos de las políticas SELinux. Son útiles para modificar elementos o acciones en tiempo de ejecución sin tener que manipular una política definida.
 
 ```
 # Visualizar los booleanos (añadimos | head para que nos muestre solo los 10 primeros)
@@ -28,7 +28,7 @@ awstats_purge_apache_log_files --> off
 En el siguiente ejemplo podemos ver como cambiar el booleano **ftpd_anon_write** al valor "on" lo que concede permiso de escritura ftp al usuario anónimo.
 
 ```
-# 1. Miramos que en que estado está
+# 1. Miramos que en que estado se encuentra
 [root@localhost ~]# getsebool ftpd_anon_write
 ftpd_anon_write --> off
 

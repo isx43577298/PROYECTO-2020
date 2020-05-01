@@ -107,9 +107,13 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 [Comando seinfo](./aux/seinfo.md)
 
-[Comando getsebool](./aux/getsebool.md)
+[Comando getsebool/setsebool](./aux/getsebool.md)
 
 [Comando semodule](./aux/semodule.md)
+
+[Comando getenforce/setenforce](./aux/getenforce.md)
+
+[Comando semanage](./aux/semanage.md)
 
 ### Proceso Práctico
 
