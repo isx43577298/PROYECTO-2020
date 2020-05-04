@@ -137,8 +137,17 @@ python3-libselinux-2.8-6.fc29.x86_64
 2. Instalar los paquetes
 
 ```
-dnf -y install policycoreutils policycoreutils-python selinux-policy selinux-policy-targeted libselinux-utils setroubleshoot-server setools setools-console mcstrans
+[root@selinux docker]# dnf -y install policycoreutils policycoreutils-python selinux-policy selinux-policy-targeted libselinux-utils setroubleshoot-server setools setools-console mcstrans
+```
+3. Verificamos que SELinux está instal·lado, pero no configurado ni activo.
+
+```
+[root@selinux docker]# sestatus
+SELinux status:                 disabled
 ```
 
+4. 
+
 [ En proceso...]
+
 
