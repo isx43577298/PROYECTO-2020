@@ -52,7 +52,7 @@ El level es opcional y el type es el aspecto más importante de la **politica es
 #### Como funciona
 
 SELinux utiliza la aplicación del tipo de etiqueta para aplicar cierta politica definida en el sistema, es decir, las politicas de SELinux definen si un proceso que se ejecuta con cierto tipo de etiqueta puede acceder a un archivo que tiene un determinado tipo de etiqueta.
-En el caso de CENTOS y RedHat el proceso de etiquetado se realiza desde el momento de la instal·lación y una vez que SELinux se ejecuta por primera vez . Por defecto ya existe un conjunto de políticas básicas predefinidas en el sistema, las cuales se aplican en el momento de arranque y durante el tiempo que el sistema se encuentre en funcionamiento.
+En el caso de Centos, RedHat y Fedora el proceso de etiquetado se realiza desde el momento de la instal·lación y una vez que SELinux se ejecuta por primera vez . Por defecto ya existe un conjunto de políticas básicas predefinidas en el sistema, las cuales se aplican en el momento de arranque y durante el tiempo que el sistema se encuentre en funcionamiento.
 
 Ejemplo:
 
@@ -121,32 +121,6 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 [Ficheros de la imagen docker](./docker)
 
-Proceso para la instal·lación de SELinux en un docker fedora:27
-
-1. Buscar los paquetes necesarios
-
-```
-[gustavo@localhost ~]$ rpm -qa | grep selinux
-libselinux-utils-2.8-6.fc29.x86_64
-libselinux-2.8-6.fc29.x86_64
-selinux-policy-targeted-3.14.2-65.fc29.noarch
-selinux-policy-3.14.2-65.fc29.noarch
-python3-libselinux-2.8-6.fc29.x86_64
-```
-
-2. Instalar los paquetes
-
-```
-[root@selinux docker]# dnf -y install policycoreutils policycoreutils-python selinux-policy selinux-policy-targeted libselinux-utils setroubleshoot-server setools setools-console mcstrans
-```
-3. Verificamos que SELinux está instal·lado, pero no configurado ni activo.
-
-```
-[root@selinux docker]# sestatus
-SELinux status:                 disabled
-```
-
-4. 
 
 [ En proceso...]
 
