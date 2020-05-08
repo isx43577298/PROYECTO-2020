@@ -122,7 +122,7 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 Descarto crear un docker ya que no se puede manipular las políticas de SELinux, los roles de los usuarios ni el modo de operación en el que trabaja.
 El sistema de etiquetaje lo hace correctamente pero al manipular SELinux siempre salta el mensaje de que está en modo disabled.
 
-Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Escogeremos la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores excepto el anfitrión, no pueden conectarse a la máquina virtual. La máquina virtual tampoco puede acceder al anfitrión.
+Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Escogeremos la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores excepto el anfitrión, no pueden conectarse a la máquina virtual.
 
 [Configuración de la red de la maquina virtual](./img/configuracion_red_mv.png)
 

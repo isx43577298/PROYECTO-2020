@@ -19,7 +19,7 @@
 
 ![Connexión a la máquina virtual](../img/comprobacion_acceso_mv.png)
 
-**4. Comprobamos que la máquina virtual no tiene acceso al host local(anfitrión)**
+**4. Comprobamos que la máquina virtual tiene acceso al host local(anfitrión)**
 
 ![Connexión a mi host local](../img/comprobacion_acceso_hl.png)
 
