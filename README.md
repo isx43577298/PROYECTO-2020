@@ -16,8 +16,8 @@
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
 + [Proceso Práctico](#Proceso-Práctico)
-  + [Creación de imagen docker](#Imagen-Docker)
-  + [Implementación práctica](#Implementación-práctica)
+  + [Creación de maquina virtual en KVM](#Maquina-KVM)
+  + [Ejemplos practicos](#Ejemplos-rracticos)
 
 ### Información sobre el proyecto
 
@@ -117,11 +117,19 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 ### Proceso Práctico
 
-#### Imagen Docker
+#### Máquina KVM
 
-[Ficheros de la imagen docker](./docker)
+Descarto crear un docker ya que no se puede manipular las políticas de SELinux, los roles de los usuarios ni el modo de operación en el que trabaja.
+El sistema de etiquetaje lo hace correctamente pero al manipular SELinux siempre salta el mensaje de que está en modo disabled.
+
+Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Escogeremos la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores excepto el anfitrión, no pueden conectarse a la máquina virtual. La máquina virtual tampoco puede acceder al anfitrión.
+
+[Configuración de la red de la maquina virtual](./img/configuracion_red_mv.png)
+
+[Comprobaciones de acceso](./aux/test.md)
 
 
-[ En proceso...]
+
+
 
 
