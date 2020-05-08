@@ -7,7 +7,7 @@
 
 ### Comprobación
 
-**1. Crearemos un fichero senzillo en la maquina virtual, solo para comprobar que estamos en ella**
+**1. Crearemos un fichero senzillo en la maquina virtual, solo para comprobar que al conectarnos via ssh estamos en ella**
 
 ![Fichero maquina](../img/fichero_maquina.png)
 
