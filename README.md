@@ -128,6 +128,15 @@ Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen
 
 [Comprobaciones de acceso](./aux/test.md)
 
+#### Ejemplos Práctico
+
+**Ejemplo 1**
+
+- Modo de operación: Enforcing
+
+En este ejemplo mostraremos como el modo de operación Enforcing carga las políticas definidas y permite o niega el acceso a objetos del sistema según las politicas definidas, aunque se añada o se modifique una regla SElinux no la tendrá en cuenta.
+
+
 
 
 
