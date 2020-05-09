@@ -26,9 +26,9 @@
 ![Puerto 22](../img/puerto22.png)
 
 
-**6. Comprobamos que la política se ha añadido correctamente**
+**6. Modificamos la politica del puerto ssh y añadimos el puerto 2222. Comprobamos tambien que se ha añadido correctamente la política**
 
-![Comprobación nueva politica](../img/nueva_politicassh.png)
+![Comprobación nueva politica](../img/añadir_puerto2222.png)
 
 **7. Intentamos eliminar la politica del puerto 22 del servicio ssh y vemos que no nos permite eliminar una política ya definida por defecto**
 
