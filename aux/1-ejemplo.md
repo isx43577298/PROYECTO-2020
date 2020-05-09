@@ -14,7 +14,7 @@
 
 **3. Modificamos el puerto sshd manualmente por el puerto 2222**
 
-![Puerto 2222](../img/puerto2222.png)
+![Puerto 2222](../img/puerto_2222.png)
 
 **4. Reiniciamos el servicio y vemos que no nos lo permite**
 
