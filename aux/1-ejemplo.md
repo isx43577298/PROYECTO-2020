@@ -6,7 +6,7 @@
 
 **1. Comprobar en que modo de operación trabaja actualmente SELinux, en nuestro caso está en modo Enforcing**
 
-![Sestatus](../img/sestatus_selinux.png)
+![Sestatus](../img/sestatus_selinuxx.png)
 
 **2. Buscamos el puerto en el que trabaja el servicio sshd**
 
