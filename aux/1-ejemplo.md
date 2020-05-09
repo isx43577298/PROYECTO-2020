@@ -44,7 +44,7 @@
 
 **10. Intentamos acceder por el puerto 2222 desde nuestra máquina local hacia la máquina virtual para comprobar que el servicio no atiende por el puerto 2222**
 
-![Comprobación final](../comprobacion_final.png)
+![Comprobación final](../img/comprobacion_final.png)
 
 
 
