@@ -23,7 +23,7 @@
 
 **5. Dejamos el fichero /etc/ssh/sshd_config como estaba**
 
-![Puerto 22](../img/puerto_22.png)
+![Puerto 22](../img/puerto22.png)
 
 **6. Modificaremos la política del puerto del servicio sshd y añadiremos el puerto 2222**
 
@@ -35,7 +35,7 @@
 
 **8. Intentamos eliminar la politica del puerto 22 del servicio ssh y vemos que no nos permite eliminar una política ya definida por defecto**
 
-![Comprobacion borra politica definida por defecto](../img/comprobacion_borrar_politica.png)
+![Comprobacion borra politica definida por defecto](../img/comprobacion_eliminar_politica.png)
 
 
 **9. Reiniciamos el servicio y vemos que omite la política añadida. El servicio sshd sigue escuchando solo por el puerto 22**
@@ -44,7 +44,7 @@
 
 **10. Intentamos acceder por el puerto 2222 desde nuestra máquina local hacia la máquina virtual para comprobar que el servicio no atiende por el puerto 2222**
 
-![Comprobación final](../comprobacion_final)
+![Comprobación final](../comprobacion_final.png)
 
 
 
