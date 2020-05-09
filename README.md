@@ -5,6 +5,7 @@
 
 ## INDEX
 
++ [Objetivo del proyecto](#Objetivo-del-proyecto)
 + [Información sobre el proyecto](#Información-sobre-el-proyecto)
 + [Documentación](#Documentación)
   + [Información básica](#Información-básica)
@@ -18,6 +19,10 @@
 + [Proceso Práctico](#Proceso-Práctico)
   + [Creación de maquina virtual en KVM](#Maquina-KVM)
   + [Ejemplos practicos](#Ejemplos-rracticos)
+
+### Objetivo del proyecto
+
+(...)
 
 ### Información sobre el proyecto
 
@@ -119,10 +124,10 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 #### Máquina KVM
 
-Descarto crear un docker ya que no se puede manipular las políticas de SELinux, los roles de los usuarios ni el modo de operación en el que trabaja.
+Descarto crear un docker ya que no se puede manipular las políticas, los roles de los usuarios ni el modo de operación en el que trabaja SELinux.
 El sistema de etiquetaje lo hace correctamente pero al manipular SELinux siempre salta el mensaje de que está en modo disabled.
 
-Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Escogeremos la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores excepto el anfitrión, no pueden conectarse a la máquina virtual.
+Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Escogeremos la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores, excepto el anfitrión, no pueden conectarse a la máquina virtual.
 
 [Configuración de la red de la maquina virtual](./img/configuracion_red_mv.png)
 
@@ -134,7 +139,11 @@ Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen
 
 - Modo de operación: Enforcing
 
-En este ejemplo mostraremos como el modo de operación Enforcing carga las políticas definidas y permite o niega el acceso a objetos del sistema según las politicas definidas, aunque se añada o se modifique una regla SElinux no la tendrá en cuenta.
+En este ejemplo mostraremos como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas, aunque se añada o se modifique una regla SElinux no la tendrá en cuenta y en ningún momento dejará eliminar una política ya establecida por defecto.
+
+[Comprobaciones ejemplo 1](./aux/1-ejemplo.md)
+
+
 
 
 
