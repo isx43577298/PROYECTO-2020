@@ -144,7 +144,15 @@ En este ejemplo mostraremos como el modo de operación Enforcing permite o niega
 [Comprobaciones ejemplo 1](./aux/1-ejemplo.md)
 
 
+**Ejemplo 2**
 
+- Modo de operación: Permissive
+
+En este ejemplo mostraremos como el modo de operación Permissive solo registra y alerta al administrador de que se ha violado alguna regla. Este modo permite añadir y modificar las reglas de SELinux.
+
+[comprobaciones ejemplo 2](./aux/2-ejemplo.md)
+
+[En proceso...]
 
 
 
