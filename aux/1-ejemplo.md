@@ -27,11 +27,11 @@
 
 **6. Reiniciamos el servicio sshd y vemos que ahora si escucha por el puerto 2222, ya que hemos creado una nueva regla**
 
-![](../img/1_ejemplo/restart_ok.png)
+![](../img/1_ejemplo/restart_puerto_2222.png)
 
 **7. Nos conectamos a la máquina virtual por el puerto 2222 desde nuestra máquina local**
 
-![](../img1_ejemplo/1_connexion.png)
+![](../img/1_ejemplo/1_connexion.png)
 
 
 
