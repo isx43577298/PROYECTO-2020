@@ -32,7 +32,7 @@ El proyecto consistirá en la explicación del módulo de seguridad para el kern
 
 #### Información básica
 
-SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sistemas Linux. Fue integrado a la rama principal del núcleo de Linux desde la versión 2.6, el 8 de agosto de 2003.
+SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sistemas Linux i forma parte del modelo de seguridad de Android . En Linux fue integrado a la rama principal del núcleo desde la versión 2.6, el 8 de agosto de 2003 i en Android de forma permamente a partir de la versión 5.0. 
 
 
 #### Introducción para entender mejor SELinux
