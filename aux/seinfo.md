@@ -8,8 +8,8 @@ De este comando destacaremos el uso de los roles y explicaremos los más comunes
 
 Los roles de SELinux llevan el sufijo **_r**. Los roles más comunes en la mayoría de los sistemas con SELinux, son los siguientes:
 
-- **user_r**: Está permitido el uso de procesos relacionados con aplicaciones de usuario final. El cambio de rol no está permitido.
-- **staff_r**: Es similar al anterior, pero en este caso está permitido el cambio de rol. Está relacionado con aquellas operaciones que no son críticas para el sistema, y se suele asignar a operadores.
+- **user_r**: Rol de usuario básico. Este rol puede hacer la mayoría de las cosas que puede hacer un usuario de Linux que no sea UID 0.
+- **staff_r**: Rol de usuario sin privilegios de administrador. Este rol es básicamente el mismo que user_r, pero está destinado para administradores.
 - **sysadm_r**: Dispone de privilegios que permiten la ejecución de tareas administrativas del sistema.
 - **secadm_r**: Tiene la capacidad de modificar la política SELinux y gestionar los controles SELinux.
 - **system_r**: Los procesos en segundo plano y los daemons tienen este rol.

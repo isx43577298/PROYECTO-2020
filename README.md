@@ -139,7 +139,7 @@ Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen
 
 - Modo de operación: Enforcing
 
-En este ejemplo mostraremos como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas, aunque se añada o se modifique una regla SElinux no la tendrá en cuenta y en ningún momento dejará eliminar una política ya establecida por defecto.
+En este ejemplo mostraremos como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto. 
 
 [Comprobaciones ejemplo 1](./aux/1-ejemplo.md)
 
@@ -148,7 +148,7 @@ En este ejemplo mostraremos como el modo de operación Enforcing permite o niega
 
 - Modo de operación: Permissive
 
-En este ejemplo mostraremos como el modo de operación Permissive solo registra y alerta al administrador de que se ha violado alguna regla. Este modo permite añadir y modificar las reglas de SELinux.
+En este ejemplo mostraremos como el modo de operación Permissive solo registra las acciones denegadas pero las ejecuta igualmente.
 
 [comprobaciones ejemplo 2](./aux/2-ejemplo.md)
 

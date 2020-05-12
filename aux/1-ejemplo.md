@@ -6,42 +6,33 @@
 
 **1. Comprobar en que modo de operación trabaja actualmente SELinux, en nuestro caso está en modo Enforcing**
 
-![Sestatus](../img/sestatus_selinuxx.png)
+![Sestatus](../img/1_ejemplo/sestatus_selinuxx.png)
 
 **2. Buscamos el puerto en el que trabaja el servicio sshd**
 
-![SSHD](../img/puertossh.png)
+![SSHD](../img/1_ejemplo/puertossh.png)
 
-**3. Modificamos el puerto sshd manualmente por el puerto 2222**
+**3. Modificamos el puerto sshd manualmente por el puerto 2222 en el ficher /etc/ssh/sshd_config**
 
-![Puerto 2222](../img/puerto_2222.png)
+![Puerto 2222](../img/1_ejemplo/puerto_2222.png)
 
-**4. Reiniciamos el servicio y vemos que no nos lo permite**
+**4. Reiniciamos el servicio y vemos que no nos lo permite porque la regla del puerto del servicio ssh hace que escuche solo por el puerto 22**
 
-![Fallo restart](../img/restart_sshd.png)
-![Fallo journalctl](../img/journalctl_sshd.png)
+![Fallo restart](../img/1_ejemplo/restart_sshd.png)
+![Fallo journalctl](../img/1_ejemplo/journalctl_sshd.png)
 
-**5. Dejamos el fichero /etc/ssh/sshd_config como estaba**
+**5. Modificamos la politica del puerto ssh y añadimos el puerto 2222. Comprobamos tambien que se ha añadido correctamente la política**
 
-![Puerto 22](../img/puerto22.png)
+![Comprobación nueva politica](../img/1_ejemplo/añadir_puerto2222.png)
 
+**6. Reiniciamos el servicio sshd y vemos que ahora si escucha por el puerto 2222, ya que hemos creado una nueva regla**
 
-**6. Modificamos la politica del puerto ssh y añadimos el puerto 2222. Comprobamos tambien que se ha añadido correctamente la política**
+![](../img/1_ejemplo/restart_ok.png)
 
-![Comprobación nueva politica](../img/añadir_puerto2222.png)
+**7. Nos conectamos a la máquina virtual por el puerto 2222 desde nuestra máquina local**
 
-**7. Intentamos eliminar la politica del puerto 22 del servicio ssh y vemos que no nos permite eliminar una política ya definida por defecto**
+![](../img1_ejemplo/1_connexion.png)
 
-![Comprobacion borra politica definida por defecto](../img/comprobacion_eliminar_politica.png)
-
-
-**8. Reiniciamos el servicio y vemos que omite la política añadida. El servicio sshd sigue escuchando solo por el puerto 22**
-
-![Omisión nueva política](../img/restart_ok.png)
-
-**9. Intentamos acceder por el puerto 2222 desde nuestra máquina local hacia la máquina virtual para comprobar que el servicio no atiende por el puerto 2222**
-
-![Comprobación final](../img/comprobacion_final.png)
 
 
 
