@@ -152,6 +152,14 @@ En este ejemplo mostraremos como el modo de operación Permissive solo registra 
 
 [comprobaciones ejemplo 2](./aux/2-ejemplo.md)
 
+**Ejemplo 3**
+
+- Servidor Apache 
+
+En este ejemplo mostraremos como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html)
+
+[comprobaciones ejemplo 3](./aux/3-ejemplo.md)
+
 [En proceso...]
 
 
