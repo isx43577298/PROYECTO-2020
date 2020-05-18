@@ -2,7 +2,13 @@
 
 - Objetivo: demostración del funcionamiento del modo de operación **Enforcing**
 
-## Comprobaciones
+## Explicación
+
+El modo Enforcing de SELinux sigue a raja tabla las reglas definidas en el sistema, en el caso de que queramos realizar una acción que no se encuentra en ninguna regla, SELinux nos negará el acceso. 
+
+En este caso realizaremos pruebas con el servicio SSHD, donde hay una regla que dicta que el servicio escuche por el puerto 22, al modificar el puerto por el 2222 SELinux negará el acceso porque no existe esta regla. Para permitir el acceso por el puerto 2222 crearemos una regla con el comando semanage que dicte esto i así podremos conectarnos remotamente por dicho puerto.
+
+### Comprobaciones
 
 **1. Comprobar en que modo de operación trabaja actualmente SELinux, en nuestro caso está en modo Enforcing**
 

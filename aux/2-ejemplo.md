@@ -2,7 +2,13 @@
 
 - Objetivo: demostración del funcionamiento del modo de operación **Permissive**
 
-## Comprobaciones
+## Explicación
+
+El modo Permissive de SELinux no realiza ninguna acción de negación de acceso, solo la registra en los logs del sistema. 
+
+Utilizaremos el mismo servicio que en el ejemplo 1, el SSHD. En este caso al cambiar el puerto por defecto (22) del servicio por uno nuevo (2222) SELinix no nos negarám este cambio aunque no haya una regla definida y por lo tanto podremos conectarnos desde otra terminal remotamente por el puerto 2222.
+
+### Comprobaciones
 
 **1. Cambiamos el modo de operación de SELinux de Enforcing a Permissive**
 

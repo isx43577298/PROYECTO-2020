@@ -120,6 +120,8 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 [Comando semanage](./aux/semanage.md)
 
+[Comando sestatus](./aux/sestatus.md)
+
 ### Proceso Práctico
 
 #### Máquina KVM
