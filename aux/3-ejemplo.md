@@ -19,6 +19,7 @@ Además mostraremos los registros de log del servicio HTTPD de la carpeta /var/l
 
 
 ![](../img/3_ejemplo/start_httpd.png)
+![](../img/3_ejemplo/var_www_html.png)
 ![](../img/3_ejemplo/1_index_html.png)
 
 
