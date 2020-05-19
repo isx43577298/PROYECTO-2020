@@ -141,7 +141,7 @@ Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen
 
 - Modo de operación: Enforcing
 
-En este ejemplo mostraremos como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto. 
+En este ejemplo mostraremos como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto utilizando el servicio SSHD. 
 
 [Comprobaciones ejemplo 1](./aux/1-ejemplo.md)
 
@@ -150,17 +150,25 @@ En este ejemplo mostraremos como el modo de operación Enforcing permite o niega
 
 - Modo de operación: Permissive
 
-En este ejemplo mostraremos como el modo de operación Permissive solo registra las acciones denegadas pero las ejecuta igualmente.
+En este ejemplo mostraremos como el modo de operación Permissive solo registra las acciones denegadas pero las ejecuta igualmente utilizando el servicio SSHD.
 
 [comprobaciones ejemplo 2](./aux/2-ejemplo.md)
 
 **Ejemplo 3**
 
-- Servidor Apache 
+- Servidor Apache / SELinux modo Enforcing
 
-En este ejemplo mostraremos como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html)
+En este ejemplo mostraremos como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Enforcing
 
 [comprobaciones ejemplo 3](./aux/3-ejemplo.md)
+
+**Ejemplo 4**
+
+- Servidor Apache / SELinux modo Permissive
+
+En este ejemplo mostraremos como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Permissive
+
+[comprobaciones ejemplo 4](./aux/4-ejemplo.md)
 
 [En proceso...]
 
