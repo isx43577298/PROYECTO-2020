@@ -21,6 +21,7 @@ Además mostraremos los registros de log del servicio HTTPD de la carpeta /var/l
 ![](../img/3_ejemplo/start_httpd.png)
 ![](../img/3_ejemplo/var_www_html.png)
 ![](../img/3_ejemplo/1_index_html.png)
+![](../img/3_ejemplo/telnet.png)
 
 
 **3. Creamos la carpeta apache en el directorio home del usuario gus y dentro el fichero de configuracón myconf.conf, que simulará al fichero de configuración real del servicio apache /etc/httpd/conf/httpd.conf pero con la nuestra propia configuración**
