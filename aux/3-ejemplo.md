@@ -38,11 +38,26 @@ Además mostraremos los registros de log del servicio HTTPD de la carpeta /var/l
 
 ![](../img/3_ejemplo/httpd_conf.png)
 
-**6. Reiniciamos el servicio httpd y vemos que no nos lo permite ya que si SELinux está en modo enforcing no permite cambiar el directorio por defecto. Para confirmar esto, vemos los archivos log del sistema y del propio servicio**
+**6. Reiniciamos el servicio httpd y vemos que no nos lo permite ya que si SELinux está en modo enforcing, solo puede leer directorios/archivos que tengan la etiqueta httpd_sys_content_t y directorios/archivos de configuración que tengan la etiqueta httpd_config_t, si no tienen estas etiquetas se negará el acceso. Para confirmar esto, vemos los archivos log del sistema y del propio servicio**
 
 ![](../img/3_ejemplo/restart_failed.png)
 ![](../img/3_ejemplo/messages_failed.png)
 ![](../img/3_ejemplo/error_log.png)
+
+
+**7.Nos fijamos en la etiqueta de la carpeta por defecto del servicio httpd "/var/www/html" y en la del fichero de configuración para poder cambiar la etiqueta de nuestros archivos personalizados. Vemos que la etiqueta de nuestros archivos es user_home_t y por lo tanto nos negará el acceso, asñi que procederemos a cambiarlas por las del servicio httpd.**
+
+![](../img/3_ejemplo/etiqueta_var_www_html.png)
+![](../img/3_ejemplo/etiqueta_indexhtml.png)
+![](../img/3_ejemplo/cambio_etiqueta_indexhtml.png)
+![](../img/3_ejemplo/etiqueta_etc_httpd_conf.png)
+![](../img/3_ejemplo/etiqueta_myconf.png)
+![](../img/3_ejemplo/cambio_etiqueta_myconf.png)
+
+**8. Reiniciamos el servicio y vemos que nos lo permite ya que le hemos asignado las etiquetas correctas. Además, nos conectamos desde la máquina local a través de un telnet por el puerto 80 para verificar que vemos el archivo personalizado.**
+
+![](../img/3_ejemplo/restart_ok.png)
+![](../img/3_ejemplo/telnet_ok.png)
 
 
 
