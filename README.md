@@ -8,7 +8,7 @@ Además mostraremos las diferencias que hay entre sus modos de trabajo.
 
 ### Documentación y Prácticas
 
-[Documentación y ejemplos del proyecto](./documentacion/README.md)
+[Documentación y ejemplos del proyecto](./documentation/README.md)
 
 ### SELinux
 
