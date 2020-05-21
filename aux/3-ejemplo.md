@@ -2,14 +2,14 @@
 
 - Objetivo: Mostrar los errores log del servidor apache y cambiar el directorio por defecto "/var/www/html" por uno propio en modo Enforcing.
 
-### Explicación
+## Explicación
 
 Como en los ejemplos 1 y 2 mostraremos los problemas que da el modo Enforcing a la hora de manipular servicios, en este caso usaremos el servicio Apache HTTP.
 
 Además mostraremos los registros de log del servicio HTTPD de la carpeta /var/log/httpd y de los registros del sistema a través del servicio rsyslog que aloja a estos en el fichero /var/log/messages
 
 
-## COMPROBACIONES
+### COMPROBACIONES
 
 **1.Verificamos que SELinux está en modo Enforcing**
 
