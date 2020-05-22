@@ -112,6 +112,10 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 [Comando sestatus](../aux/sestatus.md)
 
+[Comando chcon](../aux/chcon.md)
+
+[Comando restorecon](../aux/restorecon.md)
+
 ### Proceso Práctico
 
 #### Máquina KVM
@@ -119,7 +123,7 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 Descarto crear un docker ya que no se puede manipular las políticas, los roles de los usuarios ni el modo de operación en el que trabaja SELinux.
 El sistema de etiquetaje lo hace correctamente pero al manipular SELinux siempre salta el mensaje de que está en modo disabled.
 
-Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Escogeremos la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores, excepto el anfitrión, no pueden conectarse a la máquina virtual.
+Crearé una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen de un Fedora-29, que es el mismo que tengo en mi maquina local. Una vez instalada escojo la configuración por defecto de red de la máquina virtual, en este caso, NAT. Este modo permite a las máquinas virtuales conectarse hacia el exterior utilizando la IP del anfitrión, pero las máquinas exteriores, excepto el anfitrión, no pueden conectarse a la máquina virtual.
 
 [Configuración de la red de la maquina virtual](../img/configuracion_red_mv.png)
 
@@ -129,34 +133,38 @@ Crearemos una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen
 
 **Ejemplo 1**
 
-- Modo de operación: Enforcing
+- Servidor SSHD
+- Modo de operación de SELinux: **Enforcing**
 
-En este ejemplo mostraremos como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto utilizando el servicio SSHD. 
+En este ejemplo demostraré como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto utilizando el servicio SSHD. 
 
 [Comprobaciones ejemplo 1](../aux/1-ejemplo.md)
 
 
 **Ejemplo 2**
 
-- Modo de operación: Permissive
+- Servidor SSHD
+- Modo de operación de SELinux: **Permissive**
 
-En este ejemplo mostraremos como el modo de operación Permissive solo registra las acciones denegadas pero las ejecuta igualmente utilizando el servicio SSHD.
+En este ejemplo demostraré como el modo de operación Permissive solo registra las acciones denegadas pero las ejecuta igualmente utilizando el servicio SSHD.
 
 [comprobaciones ejemplo 2](../aux/2-ejemplo.md)
 
 **Ejemplo 3**
 
-- Servidor Apache / SELinux modo Enforcing
+- Servidor Apache 
+- Modo de operación de SELinux: **Enforcing**
 
-En este ejemplo mostraremos como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Enforcing
+En este ejemplo mostraré como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Enforcing
 
 [comprobaciones ejemplo 3](../aux/3-ejemplo.md)
 
 **Ejemplo 4**
 
-- Servidor Apache / SELinux modo Permissive
+- Servidor Apache
+- Modo de operación de SELinux: **Permissive**
 
-En este ejemplo mostraremos como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Permissive
+En este ejemplo mostraré como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Permissive
 
 [comprobaciones ejemplo 4](../aux/4-ejemplo.md)
 
