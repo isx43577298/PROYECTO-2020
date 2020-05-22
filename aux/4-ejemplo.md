@@ -1,12 +1,12 @@
 # EJEMPLO 4
 
-- Objetivo: Mostrar los errores log del servidor apache y cambiar el directorio por defecto "/var/www/html" por uno propio en modo Permissive.
+- Objetivo: Mostrar los errores log del servidor apache y cambiar el directorio por defecto **/var/www/html** por uno propio en modo **Permissive**.
 
 ## Explicación
 
-Como en el ejemplo 2 mostraremos como el modo Permissive solo registra las acciones denegadas pero las ejecuta igualmente a la hora de manipular servicios, en este caso usaremos el servicio Apache HTTP.
+Como en el ejemplo 2 mostraremos como el modo Permissive solo registra las acciones denegadas pero las ejecuta igualmente a la hora de manipular servicios, en este caso usaremos el servicio **Apache HTTPD**.
 
-Además mostraremos los registros de log del servicio HTTPD de la carpeta /var/log/httpd y de los registros del sistema a través del servicio rsyslog que aloja a estos en el fichero /var/log/messages
+Además mostraremos los registros de log del servicio en la carpeta **/var/log/httpd** y de los registros del sistema a través del servicio rsyslog que aloja a estos en el fichero **/var/log/messages**.
 
 
 ### Comprobaciones
