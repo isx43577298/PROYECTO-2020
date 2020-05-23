@@ -22,7 +22,7 @@ Además mostraremos los registros de log del servicio HTTPD de la carpeta **/var
 ![](../img/3_ejemplo/1_index_html.png)
 ![](../img/3_ejemplo/telnet.png)
 
-**3. Creo la carpeta apache en el directorio home del usuario gus y dentro el fichero de configuracón myconf.conf, que simulará al fichero de configuración real del servicio "/etc/httpd/conf/httpd.conf", pero con nuestra propia configuración**
+**3. Creo la carpeta apache en el directorio home del usuario gus y dentro el fichero de configuración myconf.conf, que simulará al fichero de configuración real del servicio "/etc/httpd/conf/httpd.conf", pero con nuestra propia configuración**
 
 ![](../img/3_ejemplo/carpeta_apache.png) 
 ![](../img/3_ejemplo/myconf.png) 
@@ -33,18 +33,18 @@ Además mostraremos los registros de log del servicio HTTPD de la carpeta **/var
 ![](../img/3_ejemplo/www_html.png)
 ![](../img/3_ejemplo/2_index_html.png)
 
-**5. Edito el fichero "/etc/httpd/conf/httpd.conf" y comento la ultima linea del fichero, después, añadio "Include /home/gus/apache/myconf.conf" donde cargaremos nuestra propia configuración**
+**5. Edito el fichero "/etc/httpd/conf/httpd.conf" y comento la ultima linea del fichero, después, añado "Include /home/gus/apache/myconf.conf" donde cargaremos nuestra propia configuración**
 
 ![](../img/3_ejemplo/httpd_conf.png)
 
-**6. Reinicio el servicio httpd y compruebo que no nos lo permite, ya que si SELinux está en modo enforcing, solo puede leer directorios/archivos que tengan la etiqueta httpd_sys_content_t y directorios/archivos de configuración que tengan la etiqueta httpd_config_t, si no tienen estas etiquetas se negará el acceso automaticamente. Para confirmar esto, vemos los archivos log del sistema y del propio servicio**
+**6. Reinicio el servicio httpd y compruebo que no nos lo permite, ya que si SELinux está en modo enforcing, solo puede leer directorios/archivos que tengan la etiqueta httpd_sys_content_t y directorios/archivos de configuración que tengan la etiqueta httpd_config_t, si no tienen estas etiquetas se negará el acceso automáticamente. Para confirmar esto, vemos los archivos log del sistema y del propio servicio**
 
 ![](../img/3_ejemplo/restart_failed.png)
 ![](../img/3_ejemplo/messages_failed.png)
 ![](../img/3_ejemplo/error_log.png)
 
 
-**7. Miro la etiqueta de la carpeta por defecto del servicio "/var/www/html" y la del fichero de configuración para compararlas con las de mis archivos personalizados. Veo que la etiqueta de mis archivos es user_home_t y por lo tanto negará el acceso, asi que las cambiaré por las etiquetas de los archivos del servicio.**
+**7. Miro la etiqueta de la carpeta por defecto del servicio "/var/www/html" y la del fichero de configuración para compararlas con las de mis archivos personalizados. Veo que la etiqueta de mis archivos es user_home_t y por lo tanto negará el acceso, así que las cambiaré por las etiquetas de los archivos del servicio.**
 
 ![](../img/3_ejemplo/etiqueta_var_www_html.png)
 ![](../img/3_ejemplo/etiqueta_indexhtml.png)

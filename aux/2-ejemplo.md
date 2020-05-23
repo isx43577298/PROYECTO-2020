@@ -6,7 +6,7 @@
 
 El modo Permissive de SELinux no realiza ninguna acción de negación de acceso, solo las registra en los logs del sistema. 
 
-Utilizaré el mismo servicio que en el ejemplo 1, el **SSHD**. En este caso al cambiar el puerto por defecto (22) del servicio por uno nuevo (2222) SELinix no negará este cambio aunque no haya una regla definida y por lo tanto podré conectarme desde otra terminal remotamente por el puerto 2222.
+Utilizaré el mismo servicio que en el ejemplo 1, el **SSHD**. En este caso al cambiar el puerto por defecto (22) del servicio por uno nuevo (2222) SELinux no negará este cambio aunque no haya una regla definida y por lo tanto podré conectarme desde otra terminal remotamente por el puerto 2222.
 
 ### Comprobaciones
 

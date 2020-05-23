@@ -1,6 +1,6 @@
 # COMANDO: GETENFORCE i SETENFORCE
 
-- **Getenforce**: Obteniene el modo actual de SELinux
+- **Getenforce**: Obtiene el modo actual de SELinux
 - **Setenforce**: Modifica el modo en que se ejecuta SELinux
 
 ## Ejemplos

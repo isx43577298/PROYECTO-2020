@@ -27,7 +27,7 @@ En este caso realizaré pruebas con el servicio SSHD, existe una regla que dicta
 ![Fallo restart](../img/1_ejemplo/restart_sshd.png)
 ![Fallo journalctl](../img/1_ejemplo/journalctl_sshd.png)
 
-**5. Modifico la política del puerto y añado el puerto 2222. Compruebo tambien que se ha añadido correctamente la política**
+**5. Modifico la política del puerto y añado el puerto 2222. Compruebo también que se ha añadido correctamente la política**
 
 ![Comprobación nueva politica](../img/1_ejemplo/añadir_puerto2222.png)
 

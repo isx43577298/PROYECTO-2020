@@ -5,7 +5,7 @@ Herramienta que gestiona módulos de política de SELinux.
 ## Ejemplos
 
 ```
-# Listar modulos de SELinux (añadimos | head para que se muestren los 10 primeros)
+# Listar módulos de SELinux (añadimos | head para que se muestren los 10 primeros)
 
 [root@localhost ~]# semodule -l | head
 abrt
@@ -22,21 +22,21 @@ amtu
 ```
 
 ```
-# Añadir un modulo
+# Añadir un módulo
 
-[root@localhost ~]# semodule -i [modulo]
+[root@localhost ~]# semodule -i [módulo]
 
-# Habilitar un modulo
+# Habilitar un módulo
 
-[root@localhost ~]# semodule -e [modulo]
+[root@localhost ~]# semodule -e [módulo]
 
-# Deshabilitar un modulo
+# Deshabilitar un módulo
 
-[root@localhost ~]# semodule -d [modulo]
+[root@localhost ~]# semodule -d [módulo]
 
-# Eliminar un modulo: 
+# Eliminar un módulo: 
 
-[root@localhost ~]# semodule -r [modulo]
+[root@localhost ~]# semodule -r [módulo]
 
 ```
 

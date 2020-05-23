@@ -2,7 +2,7 @@
 
 ## Objetivo del proyecto
 
-El objetivo del proyecto consistirá en la explicación del módulo de seguridad para el kernel de Linux, llamado **SELinux**, que proporciona el mecanismo para sopoertar políticas de seguridad para el accesos a aplicaciones, procesos, servicios y archivos del sistema. 
+El objetivo del proyecto consistirá en la explicación del módulo de seguridad para el kernel de Linux, llamado **SELinux**, que proporciona el mecanismo para soportar políticas de seguridad para el accesos a aplicaciones, procesos, servicios y archivos del sistema. 
 
 Además mostraremos las diferencias que hay entre sus modos de trabajo.
 
