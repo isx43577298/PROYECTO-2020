@@ -15,7 +15,7 @@
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
 + [Proceso Práctico](#Proceso-Práctico)
-  + [Creación de maquina virtual en KVM](#Maquina-KVM)
+  + [Creación de maquina virtual en KVM](#Máquina-KVM)
   + [Ejemplos prácticos](#Ejemplos-prácticos)
 
 ### Documentación
@@ -129,7 +129,7 @@ Crearé una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen d
 
 [Comprobaciones de acceso](../aux/test.md)
 
-#### Ejemplos Práctico
+#### Ejemplos prácticos
 
 **Ejemplo 1**
 
