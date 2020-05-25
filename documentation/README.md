@@ -27,7 +27,7 @@ SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sis
 
 #### Introducción para entender mejor SELinux
 
-Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables. Este modulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux es diferente, implementa el modelo de seguridad MAC(Control de Acceso por Mandato). Este modelo utiliza RBAC(Control de Acceso Basado en Roles), es decir, a los usuarios se les otorga un rol en el sistema, en base a esto pueden realizar determinadas tareas sobre el control de acceso a los objetos.
+Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables. Este módulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux es diferente, implementa el modelo de seguridad MAC(Control de Acceso por Mandato). Este modelo utiliza RBAC(Control de Acceso Basado en Roles), es decir, a los usuarios se les otorga un rol en el sistema, en base a esto pueden realizar determinadas tareas sobre el control de acceso a los objetos.
 
 La asignación de los permisos y el permitir o denegar la autorización para acceder a un recurso del sistema no depende del usuario sino de unas reglas programadas (políticas) de SELinux.
 
