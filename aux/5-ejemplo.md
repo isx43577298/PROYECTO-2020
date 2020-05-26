@@ -20,10 +20,10 @@ Para permitir el acceso habilitaré el valor (booleano) una vez haya instalado y
 
 **3. Como usuario gus crearé la carpeta /opt/docker que es donde tendré todos los ficheros necesarios para la instalación de LDAP y PHPLDAPADMIN**
 
-![](../img/5_ejemplo/opt_docker.png)
-[Ficheros de configuración LDAP y pasos para la instalación](./ldap/)
-[Ficheros de configuración PHPLDAPADMIN y pasos para la instalación](./phpldapadmin)
-[Ficheros de instalación conjunta](./instalacion)
+![](../img/5_ejemplo/opt_docker.png)  
+[Ficheros de configuración LDAP y pasos para la instalación](./ldap/)  
+[Ficheros de configuración PHPLDAPADMIN y pasos para la instalación](./phpldapadmin)  
+[Ficheros de instalación conjunta](./instalacion)  
 
 
 **3. Ejecutaré el script startup.sh como root para poner en marcha LDAP y PHP ya que un usuario normal no puede modificar archivos de configuración.**
