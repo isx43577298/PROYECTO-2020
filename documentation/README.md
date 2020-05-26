@@ -166,9 +166,16 @@ En este ejemplo mostraré como encontrar en los logs cuando queremos que el serv
 
 En este ejemplo mostraré como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Permissive
 
-[comprobaciones ejemplo 4](../aux/4-ejemplo.md)
+[Comprobaciones ejemplo 4](../aux/4-ejemplo.md)
 
+**Ejemplo 5**
 
+- LDAP y PHPLDAPADMIN
+- Modo de operación de SELinux: **Enforcing**
+
+En este ejemplo mostraré como SELinux niega el acceso a **LDAP** utilizando la herramienta de interfaz gráfica **PHPLDAPADMIN**, cuando SELinux opere en modo **Enforcing**.
+
+[Comprobaciones ejemplo 5](../aux/5-ejemplo.md)
 
 
 
