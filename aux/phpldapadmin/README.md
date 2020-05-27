@@ -26,7 +26,7 @@ cp /opt/docker/config.php  /etc/phpldapadmin/config.php
 systemctl start php-fpm
 ```
 
-**5. Abrir un navegador y escribir la siguiente url "http://ldapserver/phpldapadmin**
+**5. Abrir un navegador y escribir la siguiente url "http://ldapserver/phpldapadmin"**
 
 ![](../../img/5_ejemplo/phpldapadmin.png)
 
