@@ -10,10 +10,10 @@ dnf -y install openldap-servers openldap-clients
 
 **2. Crear los archivos necesarios para la configuración personalizada de LDAP**
 
-[DB_CONFIG](./DB_CONFIG)
-[edt.org.ldif](./edt.org.ldif)
-[ldap.conf](ldap.conf)
-[slapd.conf](slapd.conf)
+[DB_CONFIG](./DB_CONFIG)  
+[edt.org.ldif](./edt.org.ldif)  
+[ldap.conf](ldap.conf)  
+[slapd.conf](slapd.conf)  
 
 **3. Reemplazar los archivos de configuración por defecto por los archivos de configuración personalizados y realizar inyección de datos a bajo nivel**
 

@@ -10,7 +10,7 @@ dnf -y install phpldapadmin php-xml
 
 **2. Crear los archivos necesarios para la configuración personalizada de PHPLDAPADMIN**
 
-[config.php](./config.php)
+[config.php](./config.php)  
 [phpldapadmin.conf](./phpldapadmin.conf)
 
 **3. Reemplazar los archivos de configuración por defecto por los archivos de configuración personalizados**
