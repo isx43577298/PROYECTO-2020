@@ -178,6 +178,15 @@ En este ejemplo mostraré como SELinux niega el acceso a **LDAP** utilizando la 
 [Comprobaciones ejemplo 5](../aux/5-ejemplo.md)
 
 
+**Ejemplo 6**
+
+- LDAP y PHPLDAPADMIN
+- Modo de operación de SELinux: **Permissive**
+
+En este ejemplo mostraré como SELinux permite el acceso a **LDAP** utilizando la herramienta de interfaz gráfica **PHPLDAPADMIN**, cuando SELinux opere en modo **Permissive**.
+
+[Comprobaciones ejemplo 6](../aux/6-ejemplo.md)
+
 
 
 

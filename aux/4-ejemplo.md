@@ -11,24 +11,23 @@ Además mostraremos los registros de log del servicio en la carpeta **/var/log/h
 
 ### Comprobaciones
 
-**1. Cambiamos a modo Permissive y comprobamos que lo hemos correctamente**
+**1. Cambiar el modo de operación de SELinux a Permissive**
 
 ![](../img/4_ejemplo/permissive.png)
 
-**2. Como en el ejemplo anterior ya habíamos creado las carpetas y los archivos correspondientes en el usuario gus nos saltaremos este paso y pasaremos directamente al archivo de configuración /etc/httpd/conf/httpd.conf, donde comentaremos la ultima linea y añadiremos Include /home/gus/apache/myconf.conf**
+**2. Comentar la ultima linea del fichero /etc/httpd/conf/httpd.conf y añadir "Include /home/gus/apache/myconf.conf"**
 
 ![](../img/4_ejemplo/httpd_conf.png)
 
-
-**3. Intentamos encender el servicio apache y vemos que nos deja ya que el modo Permissive no realiza ninguna acción de negación**
+**3. Encender el servicio apache y verificar que lo permite ya que el modo Permissive no realiza ninguna acción de negación**
 
 ![](../img/4_ejemplo/start_ok.png)
 
-**4. Nos conectamos desde la máquina local a través de un telnet por el puerto 80 para verificar el acceso**
+**4. Conectarse a la máquina virtual a través de un telnet por el puerto 80 para verificar el acceso**
 
 ![](../img/4_ejemplo/telnet_ok.png)
 
-**5. Miramos los archivos log del sistema para ver si ha quedado algún registro de la acción denegada permitida**
+**5. Mirar los archivos log del sistema para ver si ha quedado algún registro de la acción denegada permitida**
 
 ![](../img/4_ejemplo/messages.png)
 

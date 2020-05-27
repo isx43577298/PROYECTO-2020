@@ -10,23 +10,23 @@ Utilizaré el mismo servicio que en el ejemplo 1, el **SSHD**. En este caso al c
 
 ### Comprobaciones
 
-**1. Cambio el modo de operación de SELinux de Enforcing a Permissive**
+**1. Cambiar el modo de operación de SELinux a Permissive**
 
 ![](../img/2_ejemplo/cambiar_permissive.png)
 
-**2. Edito manualmente el fichero /etc/ssh/sshd_config y cambio el puerto por el 2222**
+**2. Editar manualmente el fichero /etc/ssh/sshd_config y cambiar el puerto por el 2222**
 
 ![](../img/2_ejemplo/puerto2222.png)
 
-**3. Verifico que la regla del puerto del servicio hace que escuche por el puerto 22**
+**3. Verificar que la regla del puerto del servicio hace que escuche por el puerto 22**
 
 ![](../img/2_ejemplo/regla_ssh_22.png)
 
-**4. Reinicio el servicio y verifico que ahora escucha por el puerto 2222 y no por el 22 aunque así lo dicte la regla de SELinux**
+**4. Reiniciar el servicio y verificar que escucha por el puerto 2222 y no por el 22 aunque así lo dicte la regla de SELinux**
 
 ![](../img/2_ejemplo/restart_sshd.png)
 
-**5. Me conecto de la maquina local a la virtual por el puerto nuevo**
+**5. Conectarse a la máquina virtual por el puerto nuevo**
 
 ![](../img/2_ejemplo/conexion_puerto2222.png)
 

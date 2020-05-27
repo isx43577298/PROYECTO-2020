@@ -10,32 +10,32 @@ En este caso realizaré pruebas con el servicio SSHD, existe una regla que dicta
 
 ### Comprobaciones
 
-**1. Compruebo que SELinux está en modo Enforcing**
+**1. Verificar que SELinux está en modo de operación Enforcing**
 
 ![Sestatus](../img/1_ejemplo/sestatus_selinuxx.png)
 
-**2. Busco la regla del puerto en el que trabaja el servicio SSHD**
+**2. Buscar la regla del puerto en el que trabaja el servicio SSHD**
 
 ![SSHD](../img/1_ejemplo/puertossh.png)
 
-**3. Modifico el puerto del servicio manualmente por el puerto 2222 en el fichero de configuración del server /etc/ssh/sshd_config**
+**3. Modificar el puerto del servicio manualmente por el puerto 2222 en el fichero de configuración del server /etc/ssh/sshd_config**
 
 ![Puerto 2222](../img/1_ejemplo/puerto_2222.png)
 
-**4. Reinicio el servicio y compruebo que no me lo permite, porque la regla dicta que escuche solo por el puerto 22**
+**4. Reiniciar el servicio y verificar que no lo permite porque la regla dicta que escuche solo por el puerto 22**
 
 ![Fallo restart](../img/1_ejemplo/restart_sshd.png)
 ![Fallo journalctl](../img/1_ejemplo/journalctl_sshd.png)
 
-**5. Modifico la política del puerto y añado el puerto 2222. Compruebo también que se ha añadido correctamente la política**
+**5. Modificar la política del puerto y añado el puerto 2222. Verificar que se ha añadido correctamente la política**
 
 ![Comprobación nueva politica](../img/1_ejemplo/añadir_puerto2222.png)
 
-**6. Reinicio el servicio y compruebo que ahora si escucha por el puerto 2222, ya que hemos creado una nueva regla**
+**6. Reiniciar el servicio y verificar que ahora escucha por el puerto 2222**
 
 ![](../img/1_ejemplo/restart_puerto2222.png)
 
-**7. Nos conectamos a la máquina virtual por el puerto 2222 desde nuestra máquina local**
+**7. Conectarse a la máquina virtual por el puerto 2222**
 
 ![](../img/1_ejemplo/1_connexion.png)
 
