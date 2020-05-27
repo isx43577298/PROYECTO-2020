@@ -36,6 +36,6 @@ systemctl start slapd
 
 **5. Comprobar que funciona correctamente**
 
-![](../../img/5_ejemplo/ldpasearch.png)
+![](../../img/5_ejemplo/ldapsearch.png)
 
 
