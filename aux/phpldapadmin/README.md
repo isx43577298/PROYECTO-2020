@@ -28,7 +28,7 @@ systemctl start php-fpm
 
 **5. Abrir un navegador y escribir la siguiente url "http://ldapserver/phpldapadmin**
 
-![](../img/5_ejemplo/phpldapadmin.png)
+![](../../img/5_ejemplo/phpldapadmin.png)
 
 
 
