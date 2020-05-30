@@ -18,4 +18,5 @@
 ## Instalación y configuración SSH/HTTPD/LDAP/PHPLDAPADMIN
 
 - Apuntes de clase
-
+- https://github.com/isx43577298/ldapserver19/tree/master/ldapserver19:phpldapadmin
+- https://github.com/isx43577298/ldapserver19/tree/master/ldapserver19:group
