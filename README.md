@@ -21,7 +21,7 @@ Además mostraremos las diferencias que hay entre sus modos de trabajo.
 
 **Control de Acceso Discrecional(DAC)**: Permisos tradicionales de los sistemas UNIX (Propietario-Grupo-Otros ; Lectura-Escritura-Ejecución)
 
-**Control de Acceso Obligatorio(MAC)**: Conjunto de reglas que si una operación sobre un objeto está permitida o no.
+**Control de Acceso Obligatorio(MAC)**: Conjunto de reglas que permite o no una operación sobre un objeto.
 
 **Control de Acceso Basado en Roles(RBAC)**: Mediante roles permite o no a cada usuario realizar diferentes acciones.
 
@@ -34,7 +34,7 @@ Además mostraremos las diferencias que hay entre sus modos de trabajo.
 
 ### Planning
 
-[Planning del proyecto](./planificacion/horarios.md)
+[Planning del proyecto](./planificacion/planning.md)
 
 
 
