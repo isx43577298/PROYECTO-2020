@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Gustavo Tello" />
+  <title>SELinux</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">SELinux</h1>
+  <p class="subtitle">Projecte ASIX</p>
+  <p class="author">
+Gustavo Tello
+  </p>
+</div>
+<div class="slide" id="TOC">
+<ul>
+<li><a href="#selinux">SELinux</a></li>
+<li><a href="#etiquetaje">Etiquetaje</a></li>
+<li><a href="#políticas">Políticas</a></li>
+<li><a href="#tipos-de-control">Tipos de Control</a></li>
+<li><a href="#modos-de-operación">Modos de Operación</a></li>
+<li><a href="#es-un-firewall">Es un firewall?</a></li>
+<li><a href="#como-lo-tengo-montado">Como lo tengo montado?</a></li>
+<li><a href="#problema-docker-i">Problema: Docker I</a></li>
+<li><a href="#problema-docker-ii">Problema: Docker II</a></li>
+<li><a href="#solución-kvm">Solución: KVM</a></li>
+</ul>
+</div>
+<div id="selinux" class="slide section level3">
+<h1>SELinux</h1>
+<div class="figure">
+<img src="./esquema_selinux.png" alt="Esquema SELinux" />
+<p class="caption">Esquema SELinux</p>
+</div>
+</div>
+<div id="etiquetaje" class="slide section level3">
+<h1>Etiquetaje</h1>
+<ul>
+<li>Sistema de etiquetado</li>
+<li>Formato de etiqueta (user:role:type:level)</li>
+</ul>
+</div>
+<div id="políticas" class="slide section level3">
+<h1>Políticas</h1>
+<ul>
+<li>Asociada a una etiqueta</li>
+<li>Se ejecutarán solo en el modo de operación Enforcing</li>
+</ul>
+</div>
+<div id="tipos-de-control" class="slide section level3">
+<h1>Tipos de Control</h1>
+<ul>
+<li>Control de Acceso Discrecional(DAC)</li>
+<li>Control de Acceso Obligatorio(MAC)
+<ul>
+<li>MAC basado en etiquetas</li>
+<li>Control de Acceso Basado en Roles(RBAC)</li>
+</ul></li>
+</ul>
+</div>
+<div id="modos-de-operación" class="slide section level3">
+<h1>Modos de Operación</h1>
+<ul>
+<li>Enforcing</li>
+<li>Permissive</li>
+<li>Disabled</li>
+</ul>
+</div>
+<div id="es-un-firewall" class="slide section level3">
+<h1>Es un firewall?</h1>
+<ul>
+<li>NO!</li>
+<li>Diferencias SELinux vs Firewall</li>
+</ul>
+<p><img src="./firewall.png" /></p>
+</div>
+<div id="como-lo-tengo-montado" class="slide section level3">
+<h1>Como lo tengo montado?</h1>
+<p><img src="./esquema.png" /></p>
+</div>
+<div id="problema-docker-i" class="slide section level3">
+<h1>Problema: Docker I</h1>
+<p><img src="./eenforcing_disabled.png" /></p>
+<p><img src="./eerrores.png" /></p>
+</div>
+<div id="problema-docker-ii" class="slide section level3">
+<h1>Problema: Docker II</h1>
+<p><img src="./docker_service.png" /></p>
+<p><img src="./docker_info.png" /></p>
+</div>
+<div id="solución-kvm" class="slide section level3">
+<h1>Solución: KVM</h1>
+<ul>
+<li>Solución para implementar virtualización completa con Linux</li>
+</ul>
+<p><img src="./KVM-logo.jpg" /></p>
+</div>
+</body>
+</html>

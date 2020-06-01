@@ -25,7 +25,7 @@
 + Permissive
 + Disabled
 
-### És un firewall?
+### Es un firewall?
 
 + NO!
 + Diferencias SELinux vs Firewall
