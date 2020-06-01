@@ -2,17 +2,22 @@
 
 ![Esquema SELinux](./esquema_selinux.png)
 
-### És un firewall?
+### Etiquetaje
 
-+ NO!
++ Sistema de etiquetado
++ Formato de etiqueta (user:role:type:level)
 
-![](./firewall.png)
+### Políticas
+
++ Asociada a una etiqueta
++ Se ejecutarán solo en el modo de operación Enforcing
 
 ### Tipos de Control
 
 + Control de Acceso Discrecional(DAC)
 + Control de Acceso Obligatorio(MAC)
-+ Control de Acceso Basado en Roles(RBAC)
+  + MAC basado en etiquetas
+  + Control de Acceso Basado en Roles(RBAC)
 
 ### Modos de Operación
 
@@ -20,4 +25,31 @@
 + Permissive
 + Disabled
 
-### KVM 
+### És un firewall?
+
++ NO!
++ Diferencias SELinux vs Firewall
+
+![](./firewall.png)
+
+### Como lo tengo montado?
+
+![](./esquema.png)
+
+### Docker I
+
+![](./eenforcing_disabled.png)
+
+![](./eerrores.png)
+
+### Docker II
+
+![](./docker_service.png)
+
+![](./docker_info.png)
+
+### Solución: KVM
+
++ Solución para implementar virtualización completa con Linux
+
+![](./KVM-logo.jpg)

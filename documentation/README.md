@@ -9,9 +9,9 @@
   + [Información básica](#Información-básica)
   + [Introducción](#Introducción-para-entender-mejor-SELinux)
   + [Arquitectura](#Arquitectura)
-    + [Funcionamiento](#Como-funciona) 
+    + [Funcionamiento](#Como-funciona)
     + [Estructura](#Como-es-su-estructura)
-      + [Modos de operación](#Modos-de-operación) 
+      + [Modos de operación](#Modos-de-operación)
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
 + [Proceso Práctico](#Proceso-Práctico)
@@ -22,12 +22,12 @@
 
 #### Información básica
 
-SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sistemas Linux i forma parte del modelo de seguridad de Android . En Linux fue integrado a la rama principal del núcleo desde la versión 2.6, el 8 de agosto de 2003 i en Android de forma permanente a partir de la versión 5.0. 
+SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sistemas Linux i forma parte del modelo de seguridad de Android . En Linux fue integrado a la rama principal del núcleo desde la versión 2.6, el 8 de agosto de 2003 i en Android de forma permanente a partir de la versión 5.0.
 
 
 #### Introducción para entender mejor SELinux
 
-Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables. Este módulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux es diferente, implementa el modelo de seguridad MAC(Control de Acceso por Mandato). Este modelo utiliza RBAC(Control de Acceso Basado en Roles), es decir, a los usuarios se les otorga un rol en el sistema, en base a esto pueden realizar determinadas tareas sobre el control de acceso a los objetos.
+Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables. Este módulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux es diferente, implementa el modelo de seguridad MAC(Control de Acceso Obligatorio). Este modelo utiliza RBAC(Control de Acceso Basado en Roles), es decir, a los usuarios se les otorga un rol en el sistema, en base a esto pueden realizar determinadas tareas sobre el control de acceso a los objetos.
 
 La asignación de los permisos y el permitir o denegar la autorización para acceder a un recurso del sistema no depende del usuario sino de unas reglas programadas (políticas) de SELinux.
 
@@ -88,7 +88,7 @@ Para saber con qué configuración se ejecuta el sistema, basta con consultar el
 [Ejemplo del fichero /etc/sysconfig/selinux](../img/etc_sysconfig_selinuxx.png)
 
 1. **targeted**: todos los procesos están protegidos
-2. **minimum**: solo los procesos seleccionados están protegidos. 
+2. **minimum**: solo los procesos seleccionados están protegidos.
 3. **mls**: protección de seguridad multinivel.
 
 **El archivo /etc/sysconfig/selinux contiene un enlace simbólico al archivo de configuración real, /etc/selinux/config.**
@@ -136,7 +136,7 @@ Crearé una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen d
 - Servidor SSHD
 - Modo de operación de SELinux: **Enforcing**
 
-En este ejemplo demostraré como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto utilizando el servicio SSHD. 
+En este ejemplo demostraré como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto utilizando el servicio SSHD.
 
 [Comprobaciones ejemplo 1](../aux/1-ejemplo.md)
 
@@ -152,7 +152,7 @@ En este ejemplo demostraré como el modo de operación Permissive solo registra 
 
 **Ejemplo 3**
 
-- Servidor Apache 
+- Servidor Apache
 - Modo de operación de SELinux: **Enforcing**
 
 En este ejemplo mostraré como encontrar en los logs cuando queremos que el servidor apache utilice un directorio virtual des de otro directorio que no sea el que tiene por defecto (/var/www/html) cuando SELinux esté operando en modo Enforcing
@@ -186,7 +186,3 @@ En este ejemplo mostraré como SELinux niega el acceso a **LDAP** utilizando la 
 En este ejemplo mostraré como SELinux permite el acceso a **LDAP** utilizando la herramienta de interfaz gráfica **PHPLDAPADMIN**, cuando SELinux opere en modo **Permissive**.
 
 [Comprobaciones ejemplo 6](../aux/6-ejemplo.md)
-
-
-
-
