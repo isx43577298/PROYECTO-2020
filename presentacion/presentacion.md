@@ -4,31 +4,31 @@
 
 ### Etiquetaje
 
-+ Sistema de etiquetado
-+ Formato de etiqueta (user:role:type:level)
+- Sistema de etiquetado
+- Formato de etiqueta (user:role:type:level)
 
 ### Políticas
 
-+ Asociada a una etiqueta
-+ Se ejecutarán solo en el modo de operación Enforcing
+- Asociada a una etiqueta
+- Se ejecutarán solo en el modo de operación Enforcing
 
 ### Tipos de Control
 
-+ Control de Acceso Discrecional(DAC)
-+ Control de Acceso Obligatorio(MAC)
-  + MAC basado en etiquetas
-  + Control de Acceso Basado en Roles(RBAC)
+- Control de Acceso Discrecional(DAC)
+- Control de Acceso Obligatorio(MAC)
+  - MAC basado en etiquetas
+  - Control de Acceso Basado en Roles(RBAC)
 
 ### Modos de Operación
 
-+ Enforcing
-+ Permissive
-+ Disabled
+- Enforcing
+- Permissive
+- Disabled
 
 ### Es un firewall?
 
-+ NO!
-+ Diferencias SELinux vs Firewall
+- NO!
+- Diferencias SELinux vs Firewall
 
 ![](./firewall.png)
 
@@ -50,6 +50,6 @@
 
 ### Solución: KVM
 
-+ Solución para implementar virtualización completa con Linux
+- Solución para implementar virtualización completa con Linux
 
 ![](./KVM-logo.jpg)
