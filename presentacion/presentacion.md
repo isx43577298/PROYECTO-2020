@@ -36,13 +36,13 @@
 
 ![](./esquema.png)
 
-### Docker I
+### Problema: Docker I
 
 ![](./eenforcing_disabled.png)
 
 ![](./eerrores.png)
 
-### Docker II
+### Problema: Docker II
 
 ![](./docker_service.png)
 
