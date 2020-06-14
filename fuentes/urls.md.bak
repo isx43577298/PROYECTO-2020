@@ -7,7 +7,7 @@
 - https://fedoraproject.org/wiki/SELinux_FAQ
 - https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-selinux/
 
-## Conexión PHPLDAPADMIN - LDAP - HTTPD
+## Connexión PHPLDAPADMIN - LDAP - HTTPD
 
 - https://serverfault.com/questions/764441/selinux-context-for-apache-ldap-ssl
 
