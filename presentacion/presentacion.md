@@ -1,23 +1,34 @@
 ### SELinux
 
-![Esquema SELinux](../aux/presentacion/esquema_selinux.png)
+![](../aux/presentacion/logo.png)
+
+### Estructura
+
+![](../aux/presentacion/esquema_selinux.png)
 
 ### Etiquetaje
 
 - Sistema de etiquetado
-- Formato de etiqueta (user:role:type:level)
+- Formato de etiqueta
+
+![](../aux/presentacion/etiqueta.png)
 
 ### Políticas
 
+- Dos tipos de politicas: **Específica** y **Multinivel**
 - Asociada a una etiqueta
-- Se ejecutarán solo en el modo de operación Enforcing
+- Se ejecutarán solo en el modo de operación Enforcing  
+
+![](../aux/presentacion/politica.png)
+
 
 ### Tipos de Control
 
 - Control de Acceso Discrecional(DAC)
 - Control de Acceso Obligatorio(MAC)
   - MAC basado en etiquetas
-  - Control de Acceso Basado en Roles(RBAC)
+  - Control de Acceso Basado en Roles(RBAC)  
+
 
 ### Modos de Operación
 
