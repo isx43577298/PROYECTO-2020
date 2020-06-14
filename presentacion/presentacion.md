@@ -39,15 +39,11 @@
 ### Es un firewall?
 
 - NO!
-- Diferencias SELinux vs Firewall
 
 ![](../aux/presentacion/firewall.png)
 
-### Como lo tengo montado?
 
-![](../aux/presentacion/esquema.png)
-
-### Problema: Docker I
+### Estructura proyecto: Problema Docker I
 
 ![](../aux/presentacion/eenforcing_disabled.png)
 
@@ -64,3 +60,7 @@
 - Solución para implementar virtualización completa con Linux
 
 ![](../aux/presentacion/KVM-logo.jpg)
+
+### Como lo tengo montado?
+
+![](../aux/presentacion/esquema.png)
