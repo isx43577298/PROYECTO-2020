@@ -1,6 +1,6 @@
 ### SELinux
 
-![Esquema SELinux](./esquema_selinux.png)
+![Esquema SELinux](../aux/presentacion/esquema_selinux.png)
 
 ### Etiquetaje
 
@@ -30,26 +30,26 @@
 - NO!
 - Diferencias SELinux vs Firewall
 
-![](./firewall.png)
+![](../aux/presentacion/firewall.png)
 
 ### Como lo tengo montado?
 
-![](./esquema.png)
+![](../aux/presentacion/esquema.png)
 
 ### Problema: Docker I
 
-![](./eenforcing_disabled.png)
+![](../aux/presentacion/eenforcing_disabled.png)
 
-![](./eerrores.png)
+![](../aux/presentacion/eerrores.png)
 
 ### Problema: Docker II
 
-![](./docker_service.png)
+![](../aux/presentacion/docker_service.png)
 
-![](./docker_info.png)
+![](../aux/presentacion/docker_info.png)
 
 ### Solución: KVM
 
 - Solución para implementar virtualización completa con Linux
 
-![](./KVM-logo.jpg)
+![](../aux/presentacion/KVM-logo.jpg)
