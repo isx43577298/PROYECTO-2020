@@ -6,7 +6,7 @@
 # gráfica PHPLDAPADMIN cuando SELinux opera en modo Enforcing
 #########################################################################
 
-# Problema ejemplo 4
+# Problema LDAP ENFORCING
 
 # 1. Cambiar SELinux a modo Enforcing y verificar
 setenforce 1
@@ -20,7 +20,7 @@ cd /opt/docker
 pwd
 
 # 4. Ejecutar el script startup.sh como root para poner en marcha LDAP y PHP
-./startup.sh
+./startup.sh #en caso de error parar los servicios php-fmp y httpd
 
 # 5. Verificar que LDAP funciona
 ldapsearch -x -LLL | head -n15
@@ -28,14 +28,21 @@ ldapsearch -x -LLL | head -n15
 # 6. Editar el fichero "/etc/hosts" de la máquina local
 echo -e "192.168.122.112\tldapserver" >> /etc/hosts
 
-# 7. Abrir un navegador en la máquina local y escribir la siguiente url
+# 7. Abrir un navegador en la máquina local, escribir la siguiente url y verificar que no se puede acceder
 http://ldapserver/phpldapadmin
 
-# 8. Conectarse como Manager y como anónimo para verificar que SELinux no permite el acceso a LDAP
+#########################################################################
+
+# Solución LDAP ENFORCING
+
+# 8. Habilitar el booleano que permite al servicio HTTPD el acceso a LDAP
+setsebool httpd_can_connect_ldap on
+getsebool httpd_can_connect_ldap
+
+# 9. Abrir un navegador en la máquina local y escribir la siguiente url
+http://ldapserver/phpldapadmin
+
+# 10. Conectarse como Manager y como anónimo para verificar que SELinux permite el acceso a LDAP
 # login: cn=Manager,dc=edt,dc=org
 # password: secret
-
-
-
-
 

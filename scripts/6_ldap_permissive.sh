@@ -3,10 +3,10 @@
 # EDT M14 PROYECTO: SELINUX
 # 28/05/2020
 # Description: permite el acceso a LDAP utilizando la herramineta 
-# gráfica PHPLDAPADMIN cuando SELinux opera en modo Enforcing
+# gráfica PHPLDAPADMIN cuando SELinux opera en modo Permissive
 #########################################################################
 
-# Solución ejemplo 4
+# LDAP PERMISSIVE
 
 # 1. Inhabilitar el booleano que permite al servicio HTTPD el acceso a LDAP
 setsebool httpd_can_connect_ldap off

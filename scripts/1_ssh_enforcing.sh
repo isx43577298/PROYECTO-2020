@@ -7,7 +7,7 @@
 # en modo de operación Enforcing
 ####################################################
 
-# Problema ejemplo 1
+# Problema SSHD ENFORCING
 
 # 1. Cambiar el modo de operación de SELinux a Enforcing y verificar
 setenforce 1
@@ -26,6 +26,27 @@ grep "Port 2222" /etc/ssh/sshd_config
 systemctl restart sshd
 
 
+
+########################################################################
+
+
+
+
+
+# Solución SSHD ENFORCING
+
+# 6. Añadir el puerto 2222 a la política de puertos del servicio
+semanage port -a -t ssh_port_t -p tcp 2222
+
+# 7. Comprobar que se ha añadido correctament
+semanage port -l | grep ssh
+
+# 8. Iniciar el servicio y verificar que ahora escucha por el puerto nuevo
+systemctl restart sshd
+systemctl status sshd
+
+# 9. Conectarse desde la máquina local a la virtual por el puerto 2222 del servicio
+ssh -p 2222 root@192.168.122.112
 
 
 
