@@ -1,4 +1,4 @@
-### SELinux
+### SELinux: Que es?
 
 ![](../aux/presentacion/logo.png)
 
@@ -6,39 +6,43 @@
 
 ![](../aux/presentacion/esquema_selinux.png)
 
-### Etiquetaje
+### Sistema de etiquetado
 
-- Sistema de etiquetado
+- Se realiza desde el momento de la instalación del sistema operativo
+- Una etiqueta siempre va asociada a un objeto
 - Formato de etiqueta
 
 ![](../aux/presentacion/etiqueta.png)
 
-### Políticas
+### Políticas y Reglas
 
 - Dos tipos de politicas: **Específica** y **Multinivel**
-- Asociada a una etiqueta
-- Se ejecutarán solo en el modo de operación Enforcing  
+- Las reglas solo se ejecutarán en el modo de operación Enforcing  
+- Una regla siempre va asociada a una etiqueta
 
 ![](../aux/presentacion/politica.png)
 
 
-### Tipos de Control
+### Modos de Control y Operación I: Tipos de Control
 
 - Control de Acceso Discrecional(DAC)
-- Control de Acceso Obligatorio(MAC)
-  - MAC basado en etiquetas
-  - Control de Acceso Basado en Roles(RBAC)  
+- SELinux:
+  - Control de Acceso Obligatorio(MAC)
+    - (MAC) basado en etiquetas
+    - Control de Acceso Basado en Roles(RBAC)  
 
 
-### Modos de Operación
+### Modos de Control y Operación II: Modos de Operación
 
-- Enforcing
-- Permissive
-- Disabled
+- **Enforcing:** Permite o niega el acceso a objetos guiandose por las reglas definidas por defecto
+- **Permissive:** No realiza ninguna acción de denegación, solo registra las acciones no permitidas en los logs del sistema
+- **Disabled:** No se recomienda utilizar este modo si luego queremos activar SELinux
 
-### Es un firewall?
+### SELinux vs Firewall
 
-- NO!
+- No es un firewall
+- Se puede considerar complementario a un firewall
+- Diferencias
 
 ![](../aux/presentacion/firewall.png)
 
@@ -49,18 +53,22 @@
 
 ![](../aux/presentacion/eerrores.png)
 
-### Problema: Docker II
+### Estructura proyecto: Problema Docker II
 
 ![](../aux/presentacion/docker_service.png)
 
 ![](../aux/presentacion/docker_info.png)
 
-### Solución: KVM
+### Estructura proyecto: Solución KVM
 
 - Solución para implementar virtualización completa con Linux
 
 ![](../aux/presentacion/KVM-logo.jpg)
 
-### Como lo tengo montado?
+### Estructura proyecto: Como lo tengo montado?
 
 ![](../aux/presentacion/esquema.png)
+
+### Y eso es todo!
+
+![](../aux/presentacion/preguntas.jpg)

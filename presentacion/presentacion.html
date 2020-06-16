@@ -27,54 +27,61 @@
 Gustavo Tello
   </p>
 </div>
-<div id="selinux" class="slide section level3">
-<h1>SELinux</h1>
+<div id="selinux-que-es" class="slide section level3">
+<h1>SELinux: Que es?</h1>
 <p><img src="../aux/presentacion/logo.png" /></p>
 </div>
 <div id="estructura" class="slide section level3">
 <h1>Estructura</h1>
 <p><img src="../aux/presentacion/esquema_selinux.png" /></p>
 </div>
-<div id="etiquetaje" class="slide section level3">
-<h1>Etiquetaje</h1>
+<div id="sistema-de-etiquetado" class="slide section level3">
+<h1>Sistema de etiquetado</h1>
 <ul>
-<li>Sistema de etiquetado</li>
+<li>Se realiza desde el momento de la instalación del sistema operativo</li>
+<li>Una etiqueta siempre va asociada a un objeto</li>
 <li>Formato de etiqueta</li>
 </ul>
 <p><img src="../aux/presentacion/etiqueta.png" /></p>
 </div>
-<div id="políticas" class="slide section level3">
-<h1>Políticas</h1>
+<div id="políticas-y-reglas" class="slide section level3">
+<h1>Políticas y Reglas</h1>
 <ul>
 <li>Dos tipos de politicas: <strong>Específica</strong> y <strong>Multinivel</strong></li>
-<li>Asociada a una etiqueta</li>
-<li>Se ejecutarán solo en el modo de operación Enforcing</li>
+<li>Las reglas solo se ejecutarán en el modo de operación Enforcing<br />
+</li>
+<li>Una regla siempre va asociada a una etiqueta</li>
 </ul>
 <p><img src="../aux/presentacion/politica.png" /></p>
 </div>
-<div id="tipos-de-control" class="slide section level3">
-<h1>Tipos de Control</h1>
+<div id="modos-de-control-y-operación-i-tipos-de-control" class="slide section level3">
+<h1>Modos de Control y Operación I: Tipos de Control</h1>
 <ul>
 <li>Control de Acceso Discrecional(DAC)</li>
+<li>SELinux:
+<ul>
 <li>Control de Acceso Obligatorio(MAC)
 <ul>
-<li>MAC basado en etiquetas</li>
+<li>(MAC) basado en etiquetas</li>
 <li>Control de Acceso Basado en Roles(RBAC)</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
-<div id="modos-de-operación" class="slide section level3">
-<h1>Modos de Operación</h1>
+<div id="modos-de-control-y-operación-ii-modos-de-operación" class="slide section level3">
+<h1>Modos de Control y Operación II: Modos de Operación</h1>
 <ul>
-<li>Enforcing</li>
-<li>Permissive</li>
-<li>Disabled</li>
+<li><strong>Enforcing:</strong> Permite o niega el acceso a objetos guiandose por las reglas definidas por defecto</li>
+<li><strong>Permissive:</strong> No realiza ninguna acción de denegación, solo registra las acciones no permitidas en los logs del sistema</li>
+<li><strong>Disabled:</strong> No se recomienda utilizar este modo si luego queremos activar SELinux</li>
 </ul>
 </div>
-<div id="es-un-firewall" class="slide section level3">
-<h1>Es un firewall?</h1>
+<div id="selinux-vs-firewall" class="slide section level3">
+<h1>SELinux vs Firewall</h1>
 <ul>
-<li>NO!</li>
+<li>No es un firewall</li>
+<li>Se puede considerar complementario a un firewall</li>
+<li>Diferencias</li>
 </ul>
 <p><img src="../aux/presentacion/firewall.png" /></p>
 </div>
@@ -83,21 +90,25 @@ Gustavo Tello
 <p><img src="../aux/presentacion/eenforcing_disabled.png" /></p>
 <p><img src="../aux/presentacion/eerrores.png" /></p>
 </div>
-<div id="problema-docker-ii" class="slide section level3">
-<h1>Problema: Docker II</h1>
+<div id="estructura-proyecto-problema-docker-ii" class="slide section level3">
+<h1>Estructura proyecto: Problema Docker II</h1>
 <p><img src="../aux/presentacion/docker_service.png" /></p>
 <p><img src="../aux/presentacion/docker_info.png" /></p>
 </div>
-<div id="solución-kvm" class="slide section level3">
-<h1>Solución: KVM</h1>
+<div id="estructura-proyecto-solución-kvm" class="slide section level3">
+<h1>Estructura proyecto: Solución KVM</h1>
 <ul>
 <li>Solución para implementar virtualización completa con Linux</li>
 </ul>
 <p><img src="../aux/presentacion/KVM-logo.jpg" /></p>
 </div>
-<div id="como-lo-tengo-montado" class="slide section level3">
-<h1>Como lo tengo montado?</h1>
+<div id="estructura-proyecto-como-lo-tengo-montado" class="slide section level3">
+<h1>Estructura proyecto: Como lo tengo montado?</h1>
 <p><img src="../aux/presentacion/esquema.png" /></p>
+</div>
+<div id="y-eso-es-todo" class="slide section level3">
+<h1>Y eso es todo!</h1>
+<p><img src="../aux/presentacion/preguntas.jpg" /></p>
 </div>
 </body>
 </html>
