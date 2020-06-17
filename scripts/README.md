@@ -2,7 +2,7 @@
 
 **Scripts que servirán como guión para realizar los diferentes ejemplos del proyecto**
 
-- Scripts 1-3 - Servicio **SSHD**
-- Scripts 4-5 - Servicio **HTTPD**
-- Scripts 6-8 - **LDAP - PHPLDAPADMIN** y servicio **HTTPD**
+- Scripts 1-2 - Servicio **SSHD**
+- Scripts 3-4 - Servicio **HTTPD**
+- Scripts 5-6 - **LDAP - PHPLDAPADMIN** y servicio **HTTPD**
 
