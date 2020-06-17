@@ -5,7 +5,7 @@
 # Description: modifica el puerto SSHD actual(22) por uno nuevo(2222)
 # y verifica si se ha podido realizar cuando SELinux se encuentre
 # en modo de operación Enforcing
-####################################################
+#####################################################################
 
 # Problema SSHD ENFORCING
 

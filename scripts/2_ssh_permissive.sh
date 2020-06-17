@@ -26,6 +26,6 @@ systemctl restart sshd
 systemctl status sshd
 
 # 5. Conectarse a la máquina virtual por el puerto 22
-	# ssh root@192.168.122.112
+ssh root@192.168.122.112
 
 
