@@ -16,8 +16,8 @@
 
 ### Políticas y Reglas
 
-- Dos tipos de politicas: **Específica** y **Multinivel**
-- Las reglas solo se ejecutarán en el modo de operación Enforcing  
+- Dos tipos de políticas: **Específica** y **Multinivel**
+- Las reglas solo negarán el acceso en el modo de operación Enforcing  
 - Una regla siempre va asociada a una etiqueta
 
 ![](../aux/presentacion/politica.png)
@@ -34,7 +34,7 @@
 
 ### Modos de Control y Operación II: Modos de Operación
 
-- **Enforcing:** Permite o niega el acceso a objetos guiandose por las reglas definidas por defecto
+- **Enforcing:** Permite o niega el acceso a objetos guiándose por las reglas definidas por defecto
 - **Permissive:** No realiza ninguna acción de denegación, solo registra las acciones no permitidas en los logs del sistema
 - **Disabled:** No se recomienda utilizar este modo si luego queremos activar SELinux
 
