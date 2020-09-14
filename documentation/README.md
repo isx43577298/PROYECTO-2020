@@ -186,3 +186,16 @@ En este ejemplo mostraré como SELinux niega el acceso a **LDAP** utilizando la 
 En este ejemplo mostraré como SELinux permite el acceso a **LDAP** utilizando la herramienta de interfaz gráfica **PHPLDAPADMIN**, cuando SELinux opere en modo **Permissive**.
 
 [Comprobaciones ejemplo 6](../aux/6-ejemplo.md)
+
+**Ejemplo 7**
+
+- Nextcloud
+- Modo de operación de SELinux: **Enforcing**
+
+
+En este ejemplo mostraré
+
+[Comprobaciones ejemplo 7](../aux/7-ejemplo.md)
+ 
+
+
