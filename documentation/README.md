@@ -190,10 +190,6 @@ En este ejemplo mostraré como SELinux permite el acceso a **LDAP** utilizando l
 **Ejemplo 7**
 
 - Nextcloud
-- Modo de operación de SELinux: **Enforcing**
-
-
-En este ejemplo mostraré
 
 [Comprobaciones ejemplo 7](../aux/7-ejemplo.md)
  

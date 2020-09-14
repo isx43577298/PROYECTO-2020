@@ -1,6 +1,9 @@
 # EJEMPLO 7
 
-- Objetivo: Permitir el acceso a **LDAP** mediante la herramienta gráfica **PHPLDAPADMIN** cuando SELinux opera en modo **Enforcing**
 
 ## Explicación
+
+## Instalacion
+
+[Instalación nextcloud](../aux/nextcloud/instalacion_nextcloud.md)
 
