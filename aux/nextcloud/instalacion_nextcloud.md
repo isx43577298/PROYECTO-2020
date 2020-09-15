@@ -101,11 +101,11 @@ http://192.168.122.112/nextcloud
 
 **Comprobar que carga correctamente la pagina de login**
 
-![](../img/nextcloud/login.png)
+![](../../img/nextcloud/login.png)
 
 **Comprobar que entra correctamente con el usuario creado anteriormente**
 
-![](../img/nextcloud/nextcloud.png)
+![](../../img/nextcloud/nextcloud.png)
 
 
 
