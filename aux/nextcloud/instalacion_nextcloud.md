@@ -42,8 +42,8 @@ mysql_secure_installation
 ```
 mysql -p
  create database nextcloud;
- create user 'nc_admin'@'localhost' identified by 'SeCrEt';
- grant all privileges on nextcloud.* to 'nc_admin'@'localhost';
+ create user 'root'@'localhost' identified by 'jupiter';
+ grant all privileges on nextcloud.* to 'root'@'localhost';
  flush privileges;
  exit;
 ```
