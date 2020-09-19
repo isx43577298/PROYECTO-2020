@@ -195,6 +195,27 @@ En este ejemplo mostraré como SELinux permite el acceso a **LDAP** utilizando l
 En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizando el servidor **Nextcloud**, cuando SELinux opere en modo **Enforcing**.
 
 [Comprobaciones ejemplo 7](../aux/7-ejemplo.md)
+
+
+**Ejemplo 8**
+
+- Nextcloud y LDAP
+- Modo de operacion de SELinux: **Permissive**
+
+[...]
+
+[Comprobaciones ejemplo 8](../aux/8-ejemplo.md)
+
+**Ejemplo 8**
+             
+- Wordpress
+- Modo de operacion de SELinux: **Permissive**
+
+[...]
+
+[Comprobaciones ejemplo 8](../aux/8-ejemplo.md)
+
+
  
 
 
