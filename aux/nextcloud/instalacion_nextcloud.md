@@ -86,24 +86,42 @@ chwon -R apache:apache nextcloud
 mv nextcloud /var/www/html/
 ```
 
-## 4. Configuración de Nextcloud Server
+### 3.1. Configuración SELinux-Nextcloud
+
+**5. Dar permisos de lectura/escritura al servidor web**
 
 ```
-# Poner en el navegador la siguiente linea:
+chcon -R -t httpd_sys_rw_content_t /var/www/html/nextcloud/
+```
 
+**6. Evitar que el reetiquetado de archivos elimine el contexto aplicado**
+
+```
+semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html/nextcloud(/.*)?"
+```
+
+**7. Para evitar que SELinux bloquee el acceso de la aplicación a Internet para la instalación y actualización de módulos y aplicaciones, activar el booleano httpd_can_network_connect**
+
+```
+setsebool httpd_can_network_connect on
+```
+
+## 4. Configuración de Nextcloud Server
+
+**1. Poner en el navegador la siguiente linea**
+
+```
 http://IPhost/nextcloud
 
 # En mi caso:
 http://192.168.122.112/nextcloud
 ```
 
-## 5. Comprobación final
-
-**Comprobar que carga correctamente la pagina de login**
+**2. Comprobar que carga correctamente la pagina de login**
 
 ![](../../img/nextcloud/login.png)
 
-**Comprobar que entra correctamente con el usuario creado anteriormente**
+**3. Comprobar que entra correctamente con el usuario creado anteriormente**
 
 ![](../../img/nextcloud/nextcloud.png)
 
