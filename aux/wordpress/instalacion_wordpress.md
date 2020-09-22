@@ -9,7 +9,7 @@
 **1. Crear un usuario y una base de datos para la instancia de Wordpress**
 
 ```
-mysql -u root
+mysql -u root -p
  create database wp_db;
  grant all on wp_db.* to 'wp_gustavo'@'localhost' identified by 'wordpress';
  flush privileges;
@@ -50,22 +50,22 @@ chown -R apache:apache /var/www/html/wordpress/
 
 ### 2.1. Configuración SELinux-Wordpress
 
-**4. Dar permisos de lectura/escritura**
+**1. Cambiar la etiqueta de la carpeta de instalación de Wordpress**
 
 ```
 semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html/wordpress(/.*)?"
 ```
 
-**5. Definir el contexto aplicado en el paso denaterior de manera permanente**
+**2. Definir la etiqueta del paso denaterior de manera permanente**
 
 ```
 restorecon -R /var/www/html/wordpress/
 ```
 
-**6. Para evitar que SELinux bloquee el acceso de la aplicación a Internet para la instalación y actualización de módulos y aplicaciones, activar el booleano httpd_can_network_connect**
+**3. Para evitar que SELinux bloquee el acceso de la aplicación a Internet para la instalación y actualización de módulos y aplicaciones, activar el booleano httpd_can_network_connect**
 
 ```
-setsebool httpd_can_network_connect on
+setsebool -P httpd_can_network_connect on
 ```
 
 ## 3. Configuración Wordpress

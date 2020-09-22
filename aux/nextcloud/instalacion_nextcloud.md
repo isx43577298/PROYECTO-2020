@@ -88,19 +88,19 @@ mv nextcloud /var/www/html/
 
 ### 3.1. Configuración SELinux-Nextcloud
 
-**5. Dar permisos de lectura/escritura al servidor web**
+**1. Cambiar la etiqueta de la carpeta de instalación de Nextcloud**
 
 ```
 chcon -R -t httpd_sys_rw_content_t /var/www/html/nextcloud/
 ```
 
-**6. Evitar que el reetiquetado de archivos elimine el contexto aplicado**
+**2. Evitar que el reetiquetado de archivos elimine la etiqueta del paso anterior**
 
 ```
 semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html/nextcloud(/.*)?"
 ```
 
-**7. Para evitar que SELinux bloquee el acceso de la aplicación a Internet para la instalación y actualización de módulos y aplicaciones, activar el booleano httpd_can_network_connect**
+**3. Para evitar que SELinux bloquee el acceso de la aplicación a Internet para la instalación y actualización de módulos y aplicaciones, activar el booleano httpd_can_network_connect**
 
 ```
 setsebool httpd_can_network_connect on

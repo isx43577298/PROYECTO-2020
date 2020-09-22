@@ -217,15 +217,6 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 
 **Ejemplo 10**
 
-- Wordpress
-- Modo de operacion de SELinux: **Permissive**
-
-[...]
-
-[Comprobaciones ejemplo 10](../aux/10-ejemplo.md)
-
-**Ejemplo 11**
-
 - Moddle
 - Modo de operacion de SELinux: **Enforcing**
 
