@@ -105,41 +105,41 @@ http://192.168.122.112/moodle
 
 **2. Comprobar que carga correctamente la pagina**
 
-![](../../img/wordpress/moodle.png)
+![](../../img/moodle/moodle.png)
 
 **3. Confirmar las rutas de Moodle**
 
-![](../../img/wordpress/rutas.png)
+![](../../img/moodle/rutas.png)
 
 **4. Escoger la Base de Datos adecuada**
 
-![](../../img/wordpress/base_de_datos.png)
+![](../../img/moodle/base_de_datos.png)
 
 **5. Introducir los datos de conexión**
 
-![](../../img/wordpress/ajuste_bd.png)
+![](../../img/moodle/ajuste_bd.png)
 
 **6. Antes de comenzar con el proceso de instalación, aceptar los términos y condiciones del servicio**
 
-![](../../img/wordpress/terminos.png)
+![](../../img/moodle/terminos.png)
 
 **7. Verificar si cumplimos con todos los requisitos para realizar la instalación**
 
-![](../../img/wordpress/requisitos.png)
+![](../../img/moodle/requisitos.png)
 
-![](../../img/wordpress/requisitos2.png)
+![](../../img/moodle/requisitos2.png)
 
 **8. Configurar la información del administrador**
 
-![](../../img/wordpress/info_general.png)
+![](../../img/moodle/info_general.png)
 
 **9. Configurar la descripción de la página principal**
 
-![](../../img/wordpress/descripcion.png)
+![](../../img/moodle/descripcion.png)
 
 **10. Verificar que podemos entrar directamente a nuestra área personal**
 
-![](../../img/wordpress/area_personal.png)
+![](../../img/moodle/area_personal.png)
 
 
 
