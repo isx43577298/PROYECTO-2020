@@ -22,24 +22,19 @@
 
 #### Información básica
 
-SELinux (Security-Enchanced Linux) es una arquitectura de seguridad para los sistemas Linux i forma parte del modelo de seguridad de Android . En Linux fue integrado a la rama principal del núcleo desde la versión 2.6, el 8 de agosto de 2003 i en Android de forma permanente a partir de la versión 5.0.
+SELinux (Security-Enhanced Linux) es una arquitectura de seguridad para los sistemas Linux i forma parte del modelo de seguridad de Android . En Linux fue integrado a la rama principal del núcleo desde la versión 2.6, el 8 de agosto de 2003 i en Android de forma permanente a partir de la versión 5.0.
 
 
 #### Introducción para entender mejor SELinux
 
-Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables. Este módulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux es diferente, implementa el modelo de seguridad MAC(Control de Acceso Obligatorio). Este modelo utiliza RBAC(Control de Acceso Basado en Roles), es decir, a los usuarios se les otorga un rol en el sistema, en base a esto pueden realizar determinadas tareas sobre el control de acceso a los objetos.
+Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables, este módulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux utiliza el sistema MAC(Control de acceso obligatorio) basado en la interfaz LSM(Módulos de Seguridad de Linux), el núcleo pregunta a SELinux antes de cada llamada al sistema para saber si un proceso está autorizado a realizar una determinada operación.
 
-La asignación de los permisos y el permitir o denegar la autorización para acceder a un recurso del sistema no depende del usuario sino de unas reglas programadas (políticas) de SELinux.
+SELinux utiliza una serie de reglas conocidas en conjunto como una política para autorizar o denegar operaciones. Se proporcionan dos políticas estándar targeted dirigida) y strict(estricta) para evitar gran parte del trabajo de configuración. Estas reglas van ligadas a las etiquetas que proporciona SELinux a todos los usuarios, procesos, archivos y directorios, estableciendo así una relación una relación entre este logrando establecer políticas con un acceso más específico.
 
-SELinux asigna una etiqueta a todo. Mediante el uso de estas, se establecen relaciones entre los usuarios, procesos, archivos y directorios, logrando establecer políticas a un acceso más específico.
+![](../aux/presentacion/etiqueta.png)
 
-```
-# Formato de una etiqueta
 
-user:role:type:level
-```
-
-El level es opcional y el type es el aspecto más importante de la **política específica**. El user, el role y el level se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**.
+El **nivel** es opcional y el **tipo** es el aspecto más importante de la **política específica**. El usuario, rol y nivel se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**(Seguridad Multinivel).
 
 
 #### Arquitectura
@@ -74,8 +69,6 @@ SELinux puede trabajar en tres modos de configuración:
 
 3. **Enforcing**: Carga las políticas definidas y permite o niega el acceso a objetos del sistema. Este es el modo que recomiendan para entornos de producción.
 
-
-
 #### Como se configura y que ficheros utiliza
 
 Hay muchas formas de configurar SELinux para proteger el sistema. Las más comunes son:
@@ -100,21 +93,21 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 #### Comandos
 
-[Comando seinfo](../aux/seinfo.md)
+[Comando seinfo](../aux/ordenes/seinfo.md)
 
-[Comando getsebool/setsebool](../aux/getsebool.md)
+[Comando getsebool/setsebool](../aux/ordenes/getsebool.md)
 
-[Comando semodule](../aux/semodule.md)
+[Comando semodule](../aux/ordenes/semodule.md)
 
-[Comando getenforce/setenforce](../aux/getenforce.md)
+[Comando getenforce/setenforce](../aux/ordenes/getenforce.md)
 
-[Comando semanage](../aux/semanage.md)
+[Comando semanage](../aux/ordenes/semanage.md)
 
-[Comando sestatus](../aux/sestatus.md)
+[Comando sestatus](../aux/ordenes/sestatus.md)
 
-[Comando chcon](../aux/chcon.md)
+[Comando chcon](../aux/ordenes/chcon.md)
 
-[Comando restorecon](../aux/restorecon.md)
+[Comando restorecon](../aux/ordenes/restorecon.md)
 
 ### Proceso Práctico
 
