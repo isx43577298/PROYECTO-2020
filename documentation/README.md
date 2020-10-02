@@ -10,7 +10,7 @@
   + [Introducción](#Introducción-para-entender-mejor-SELinux)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona)
-    + [Estructura](#Como-es-su-estructura)
+    + [Estructura](#Como-es-su-estructura:-MAC-vs-DAC)
       + [Modos de operación](#Modos-de-operación)
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
@@ -41,23 +41,19 @@ El **nivel** es opcional y el **tipo** es el aspecto más importante de la **pol
 
 #### Como funciona
 
-SELinux utiliza la aplicación del tipo de etiqueta para aplicar cierta política definida en el sistema, es decir, las políticas de SELinux definen si un proceso que se ejecuta con cierto tipo de etiqueta puede acceder a un archivo que tiene un determinado tipo de etiqueta.
-En el caso de Centos, RedHat y Fedora el proceso de etiquetado se realiza desde el momento de la instalación y una vez que SELinux se ejecuta por primera vez . Por defecto ya existe un conjunto de políticas básicas predefinidas en el sistema, las cuales se aplican en el momento de arranque y durante el tiempo que el sistema se encuentre en funcionamiento.
+Cuando un sujeto intenta acceder a un objeto SELinux utiliza la base de datos de las políticas para autorizar o denegar el acceso. En caso de que se deniegue el acceso se registra y se guarda en un log en el sistema. 
 
-Ejemplo:
+![](../img/como_funciona_selinux.png)
 
-1. Una aplicación o proceso(sujetos) solicita acceso a un archivo(objeto)
-2. SELinux consulta la caché de vector de acceso (AVC), donde se almacenan los permisos de los objetos y los sujetos
+Estas políticas se guardan en el fichero **/etc/selinux/targeted**
 
-**En caso de que no pueda tomar una decisión en función a los permisos almacenados en la cache, pasaría al paso 3**
+#### Como es su estructura: MAC VS DAC
 
-3. Envía una solicitud al server de seguridad, que analiza el contexto de seguridad y luego, permite o niega el acceso.
+Tradicionalmente, los sistemas Linux y UNIX utilizan DAC. SELinux es un ejemplo de un sistema MAC para Linux.
 
-#### Como es su estructura
+Con DAC, los archivos y los procesos tienen propietarios, que pueden ser usuarios, grupos o cualquier persona. Los usuarios pueden cambiar los permisos de sus propios archivos. Con un sistema DAC, el usuario raíz tiene control de acceso total. El acceso raíz le permite acceder a los archivos de cualquier otro usuario o ejecutar cualquier otra acción en el sistema.
 
-SELinux es un LSM(Linux Security Modules), es decir, un **Modulo de Seguridad** de Linux y por lo tanto se encuentra integrado en el Kernel, de esta manera, obtiene acceso directo a todas las operaciones a nivel de Seguridad.
-
-**Las reglas DAC se aplican primero que las reglas de SELinux**
+Sin embargo, en los sistemas MAC, como SELinux, hay una política de acceso establecida a nivel administrativo. Incluso si se modifica la configuración del DAC en el directorio principal, la política de SELinux establecida protegerá el sistema e impedirá que otro usuario o proceso acceda al directorio. Las políticas de SELinux le permiten ser específico y abarcar una gran cantidad de procesos. Puede realizar modificaciones con SELinux para limitar el acceso entre usuarios, archivos, directorios y más.
 
 ##### Modos de operación
 
