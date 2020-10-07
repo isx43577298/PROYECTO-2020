@@ -10,7 +10,7 @@
   + [Introducción](#Introducción-para-entender-mejor-SELinux)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona)
-    + [Estructura](#Como-es-su-estructura:-MAC-vs-DAC)
+    + [Estructura](#Como-es-su-estructura:-MAC-VS-DAC)
       + [Modos de operación](#Modos-de-operación)
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
@@ -74,7 +74,7 @@ Hay muchas formas de configurar SELinux para proteger el sistema. Las más comun
 
 Para saber con qué configuración se ejecuta el sistema, basta con consultar el archivo **/etc/sysconfig/selinux**. El archivo contendrá una sección donde se indicará si SELinux se encuentra en modo enforcing, permissive o disabled, y qué política se debería cargar targeted, minimum o mls .
 
-[Ejemplo del fichero /etc/sysconfig/selinux](../img/etc_sysconfig_selinuxx.png)
+![](../img/etc_sysconfig_selinuxx.png)
 
 1. **targeted**: todos los procesos están protegidos
 2. **minimum**: solo los procesos seleccionados están protegidos.
