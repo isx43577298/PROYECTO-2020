@@ -1,4 +1,4 @@
-# PROYECTO SELinux
+# PROYECTO - Administración Avanzada: SELinux
 
 + Gustavo Tello Beltran
 + isx43577298
@@ -105,6 +105,8 @@ El directorio /etc/selinux/ es la ubicación principal para todos los archivos d
 
 [Comando restorecon](../aux/ordenes/restorecon.md)
 
+[Comando getfacl](../aux/ordenes/getfacl.md)
+
 ### Proceso Práctico
 
 #### Máquina KVM
@@ -187,31 +189,22 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 
 
 **Ejemplo 8**
-
-- Nextcloud y LDAP
-- Modo de operacion de SELinux: **Permissive**
-
-[...]
-
-[Comprobaciones ejemplo 8](../aux/8-ejemplo.md)
-
-**Ejemplo 9**
              
 - Wordpress
 - Modo de operacion de SELinux: **Enforcing**
 
 [...]
 
-[Comprobaciones ejemplo 9](../aux/9-ejemplo.md)
+[Comprobaciones ejemplo 8](../aux/8-ejemplo.md)
 
-**Ejemplo 10**
+**Ejemplo 9**
 
 - Moddle
 - Modo de operacion de SELinux: **Enforcing**
 
 [...]
 
-[Comprobaciones ejemplo 10](../aux/11-ejemplo.md)
+[Comprobaciones ejemplo 9](../aux/9-ejemplo.md)
 
 
 
