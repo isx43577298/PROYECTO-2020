@@ -1,4 +1,4 @@
-# PROYECTO - Administración Avanzada: SELinux
+# PROYECTO - Seguridad Avanzada: SELinux
 
 + Gustavo Tello Beltran
 + isx43577298
@@ -22,8 +22,9 @@
 
 #### Información básica
 
-SELinux (Security-Enhanced Linux) es una arquitectura de seguridad para los sistemas Linux i forma parte del modelo de seguridad de Android . En Linux fue integrado a la rama principal del núcleo desde la versión 2.6, el 8 de agosto de 2003 i en Android de forma permanente a partir de la versión 5.0.
+SELinux (Security-Enhanced Linux) es una arquitectura de seguridad que viene integrado en el kernel Linux desde la version 2.6 que implementa módulos para mejorar la seguridad. Esta dirigida para administradores de servidores, quienes deben de implementar las políticas para otorgar o negar privilegios a un usuario sobre los objetos del sistema(archivos, puertos, sockets y otros procesos).
 
+No reemplaza el modelo tradicional de seguridad de Linux y sirve como complemento para cubrir los puntos debiles que existen en el sistema, por esta razon es importante no deshabilitarlo.
 
 #### Introducción para entender mejor SELinux
 
@@ -31,21 +32,74 @@ Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para p
 
 SELinux utiliza una serie de reglas conocidas en conjunto como una política para autorizar o denegar operaciones. Se proporcionan dos políticas estándar targeted dirigida) y strict(estricta) para evitar gran parte del trabajo de configuración. Estas reglas van ligadas a las etiquetas que proporciona SELinux a todos los usuarios, procesos, archivos y directorios, estableciendo así una relación una relación entre este logrando establecer políticas con un acceso más específico.
 
+<center>
+
 ![](../aux/presentacion/etiqueta.png)
 
+</center>
 
-El **nivel** es opcional y el **tipo** es el aspecto más importante de la **política específica**. El usuario, rol y nivel se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**(Seguridad Multinivel).
+El **nivel** es opcional y el **tipo** es el aspecto más importante de la **Política Específica**. El **usuario, rol y nivel** se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**(Seguridad Multinivel).
 
 
 #### Arquitectura
 
 #### Como funciona
 
-Cuando un sujeto intenta acceder a un objeto SELinux utiliza la base de datos de las políticas para autorizar o denegar el acceso. En caso de que se deniegue el acceso se registra y se guarda en un log en el sistema. 
+Las distribuciones GNU/Linux Fedora, Red Hat Enterprise Linux, CentOS y Scientific Linux incorporan SELinux habilitado por defecto a la hora de la instalación del sistema operativo.  
+Una vez iniciado el sistema, SELinux realizará el etiquetado del disco duro. Consiste en asignar una etiqueta a cada objeto del sistema que irá asociada a una regla que permitirá o negará el acceso a un sujeto que pretenda acceder.
+
+**Ejemplo de una regla**
+
+<center>
+
+![](../img/regla.png)
+
+Regla que establece el puerto por el cual se puede acceder al servidor **SSHD**.
+
+</center>
+
+En el caso de que se quiera hacer un reetiquetado del sistema, se creará un fichero vacío llamado **.autorelabel** en el directorio raíz y después se reiniciará el sistema para que se inicie el reetiquetado.
+
+Cuando un sujeto intenta acceder a un objeto SELinux utiliza la base de datos de las políticas para autorizar o denegar el acceso. En caso de que se deniegue el acceso se registra y se guarda en un log en el sistema en el fichero **/var/log/messages**.
+
+<center>
 
 ![](../img/como_funciona_selinux.png)
 
-Estas políticas se guardan en el fichero **/etc/selinux/targeted**
+
+Estas políticas se guardan en el fichero **/etc/selinux/targeted/policy/policy.[version]**
+
+</center>
+
+##### Ejemplo
+
+El **usuario gustavo** intenta cambiar el puerto 22 por defecto del servidor SSHD, por ejemplo al puerto 2222. SELinux irá a buscar al base de datos de las políticas para verificar si existe una regla que permita abrir el puerto nuevo para el servidor.
+
+En caso de que exista se permitirá el cambio, sino se negrá el cambio y se generará un mensaje de error al AVC(Caché de Control de Acceso) que contiene los permisos objeto y sujeto bajo control.
+
+#### AVC Caché de Control de Acceso
+
+Contiene los permisos objeto y sujeto bajo control. Es donde se generan los mensajes de error cuando una regla deniegue el acceso de un sujeto a un objeto.
+
+<center>
+
+![](../img/avc_denied.png)
+
+</center>
+
+**Partes del mensaje**  
+
++ **avc: denied**:	Se denegó una operación.
++ **{ read }**:	Esta operación necesita los permisos read y write.  
++ **pid=1484**:	El proceso con PID 1484 ejecutó la operación (o intentó hacerlo).
++ **comm="httpd"**:	Este proceso es una instancia del servidor httpd.
++ **name="myconf.conf"**:	El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable «path» con una ruta completa.
++ **dev=dm-0**:	El dispositivo que alberga el objeto destino es un dm-0, un dispositivo lógico LVM.
++ **ino=794975**:	El objeto está identificado por el número de inodo 794975.
++ **scontext=system_u:system_r:httpd_t:s0**:	Este es el contexto de seguridad del proceso que ejecutó la operación.
++ **tcontext=unconfined_u:object_r:user_home_t:s0**:	Este es el contexto de seguridad del objeto destino.
++ **tclass=file**:	El objeto destino es un archivo.
++ **permissive=0**: El modo de operación permissive está desactivado.
 
 #### Como es su estructura: MAC VS DAC
 
@@ -189,7 +243,7 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 
 
 **Ejemplo 8**
-             
+
 - Wordpress
 - Modo de operacion de SELinux: **Enforcing**
 
@@ -205,11 +259,3 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 [...]
 
 [Comprobaciones ejemplo 9](../aux/9-ejemplo.md)
-
-
-
-
-
- 
-
-
