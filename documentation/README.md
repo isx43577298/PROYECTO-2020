@@ -1,4 +1,4 @@
-# PROYECTO - Seguridad Avanzada: SELinux
+# PROYECTO - Seguridad Mejorada: SELinux
 
 + Gustavo Tello Beltran
 + isx43577298

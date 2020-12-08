@@ -2,7 +2,7 @@
 
 ## Objetivo del proyecto
 
-El objetivo del proyecto consistirá en la explicación del módulo de seguridad para el kernel de Linux, llamado **SELinux**, una arquitectura de seguridad que viene integrado en el kernel Linux que implementa módulos para mejorar la seguridad del sistema. 
+El objetivo del proyecto consistirá en la explicación del módulo de seguridad para el kernel de Linux, llamado **SELinux**, una arquitectura de seguridad que viene integrado en el kernel Linux que implementa módulos para mejorar la seguridad del sistema.
 
 ### Documentación y Prácticas
 
@@ -18,8 +18,8 @@ El objetivo del proyecto consistirá en la explicación del módulo de seguridad
 
 ### Conceptos importantes
 
-**Control de Acceso Discrecional(DAC)**: Permisos tradicionales de los sistemas UNIX (Propietario-Grupo-Otros ; Lectura-Escritura-Ejecución)
-**Control de Acceso Obligatorio(MAC)**: Conjunto de reglas que permite o no una operación sobre un objeto.
+**Control de Acceso Discrecional(DAC)**: Permisos tradicionales de los sistemas UNIX (Propietario-Grupo-Otros ; Lectura-Escritura-Ejecución)  
+**Control de Acceso Obligatorio(MAC)**: Conjunto de reglas que permite o no una operación sobre un objeto.  
 **Control de Acceso Basado en Roles(RBAC)**: Mediante roles permite o no a cada usuario realizar diferentes acciones.
 
 ### Estructura del proyecto
@@ -32,11 +32,3 @@ El objetivo del proyecto consistirá en la explicación del módulo de seguridad
 ### Planning
 
 [Planning del proyecto](./planificacion/planning.md)
-
-
-
-
-
-
-
-
