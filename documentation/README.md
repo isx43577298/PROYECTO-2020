@@ -1,4 +1,4 @@
-# PROYECTO - Seguridad Mejorada: SELinux
+# PROYECTO - Linux de Seguridad Mejorada: SELinux
 
 + Gustavo Tello Beltran
 + isx43577298
@@ -7,7 +7,7 @@
 
 + [Documentación](#Documentación)
   + [Información básica](#Información-básica)
-  + [Introducción](#Introducción-para-entender-mejor-SELinux)
+  + [Introducción](#Introducción)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona)
     + [Estructura](#Como-es-su-estructura:-MAC-VS-DAC)
@@ -22,15 +22,43 @@
 
 #### Información básica
 
-SELinux (Security-Enhanced Linux) es una arquitectura de seguridad que viene integrado en el kernel Linux desde la version 2.6 que implementa módulos para mejorar la seguridad. Esta dirigida para administradores de servidores, quienes deben de implementar las políticas para otorgar o negar privilegios a un usuario sobre los objetos del sistema(archivos, puertos, sockets y otros procesos).
+SELinux (Linux de Seguridad Mejorada) es una arquitectura de seguridad que viene integrado en el kernel Linux desde la version 2.6 que implementa módulos para mejorar la seguridad. Esta dirigida para administradores de servidores, quienes deben de implementar las políticas para otorgar o negar privilegios a un usuario sobre los objetos del sistema(archivos, puertos, sockets y otros procesos).
 
 No reemplaza el modelo tradicional de seguridad de Linux y sirve como complemento para cubrir los puntos debiles que existen en el sistema, por esta razon es importante no deshabilitarlo.
 
-#### Introducción para entender mejor SELinux
+#### Introducción
 
-Tradicionalmente manejamos los típicos atributos rwx(read-write-execute) para permitir o negar el permiso a nuestros archivos, directorios y ejecutables, este módulo de seguridad se conoce como DAC(Control de Acceso Discrecional), ya que la asignación de permisos queda a criterio del propietario de los archivos o recursos. Pero SELinux utiliza el sistema MAC(Control de acceso obligatorio) basado en la interfaz LSM(Módulos de Seguridad de Linux), el núcleo pregunta a SELinux antes de cada llamada al sistema para saber si un proceso está autorizado a realizar una determinada operación.
+Los archivos, directorios y dispositivos se llaman objetos. Los procesos, como un comando que ejecuta el usuario o la aplicación Mozilla Firefox, se llaman sujetos.  
 
-SELinux utiliza una serie de reglas conocidas en conjunto como una política para autorizar o denegar operaciones. Se proporcionan dos políticas estándar targeted dirigida) y strict(estricta) para evitar gran parte del trabajo de configuración. Estas reglas van ligadas a las etiquetas que proporciona SELinux a todos los usuarios, procesos, archivos y directorios, estableciendo así una relación una relación entre este logrando establecer políticas con un acceso más específico.
+La mayoría de los sistemas operativos usan una **arquitectura de Control de Acceso Discrecional(DAC)**, que controla cómo interactuan los sujetos con los objetos, y cómo los sujetos interactuan entre sí, los usuarios controlan los permisos de archivos (**objetos**) de los que son dueños. Por ejemplo, en sistemas operativos Linux, los usuarios pueden hacer sus directorios legibles para el resto del mundo, dando a los usuarios y procesos (sujetos) acceso a información potencialmente sensible.  
+
+```
+$ ls -l archivo1
+-rwxrw-r-- 1 usuario1 grupo1 0 2020-05-30 15:42 archivo1
+```
+
+Los primeros tres bits de permisos, **r(lectura),w(escritura),x(ejecucion)**, controlan el acceso que el usuario Linux usuario1 (en este caso, el dueño) tiene para el archivo1. Los siguientes tres bits de permisos, rw-, controlan el acceso que el grupo Linux grupo1 tiene para el archivo1. Los últimos tres bits de permisos, r--, controlan el acceso que todo el mundo tiene para el archivo1, que incluyen a todos los usuarios y procesos.
+
+Los mecanismos DAC son fundamentalmente inadecuados para una fuerte seguridad del sistema. Las decisiones de acceso DAC son sólo basadas en la identidad del usuario y su propiedad, ignorando información de seguridad relevante tal como el rol del usuario, la función y la confiabilidad del programa, y la sensibilidad e integridad de los datos. Cada usuario tiene completa discreción sobre sus archivos, haciendo imposible aplicar una política de seguridad a nivel de sistema. Más aún, cada programa que ejecuta un usuario hereda todos los permisos garantizados al usuario y es libre de cambiar el acceso de archivos del usuario, por lo que no se provee una protección contra software malicioso. Muchos servicios del sistema y programas privilegiados deben ejecutarse con privilegios más allá de lo que realmente necesitan, por lo que una brecha en cualquiera de estos programas se puede explotar para obtener acceso completo al sistema
+
+<center>  
+
+![](../aux/presentacion/dac.jpg)  
+
+</center>  
+
+SELinux en cambio agrega una **arquitectura de Control de Acceso Obligatorio (MAC)** al kernel de Linux y las distribuciones GNU/Linux Fedora, Red Hat Enterprise Linux, CentOS y Scientific Linux incorporan SELinux habilitado por defecto a la hora de la instalación del sistema operativo.
+
+Esta arquitectura necesita la habilidad de aplicar una política de seguridad puesta administrativamente sobre todos los procesos y archivos del sistema, basando decisiones en las etiquetas que contienen información variada relevante para la seguridad. El modelo MAC permite la ejecución a salvo de aplicaciones no confiables, hace que la información esté protegida de los usuarios legítimos con autorización limitada, así como de usuarios autorizados que involuntariamente ejecutaron aplicaciones maliciosas.  
+
+Ejemplo de las etiquetas que contienen información de seguridad relevante que se usa en los procesos, usuarios Linux y archivos, en sistemas operativos Linux que corren SELinux. Esta información se llama contexto de SELinux y se visualiza usando el comando **ls -Z**:  
+```
+$ ls -Z file1
+-rwxrw-r--  user1 group1 unconfined_u:object_r:user_home_t:s0      file1
+```
+En este ejemplo, SELinux provee un **usuario (unconfined_u), un rol (object_r), un tipo (user_home_t), y un nivel (s0)**. Esta información se usa para tomar decisiones sobre el control de acceso. Con DAC, el acceso se controla basado sólo en los IDs de usuarios y grupos de Linux.   
+
+Las reglas de políticas de SELinux se chequean después de las reglas DAC, en caso de que las reglas DAC denieguen el acceso al principio no se mirarán las políticas.
 
 <center>
 
@@ -38,15 +66,40 @@ SELinux utiliza una serie de reglas conocidas en conjunto como una política par
 
 </center>
 
-El **nivel** es opcional y el **tipo** es el aspecto más importante de la **Política Específica**. El **usuario, rol y nivel** se utilizan en implementaciones más avanzadas de SELinux, como la **MLS**(Seguridad Multinivel).
+El **nivel** es opcional y el **tipo** es el aspecto más importante de la **Política Específica**. El **usuario, rol y nivel** se utilizan en implementaciones más avanzadas de SELinux, como la **Seguridad Multinivel (MLS)**.
 
 
 #### Arquitectura
 
 #### Como funciona
 
-Las distribuciones GNU/Linux Fedora, Red Hat Enterprise Linux, CentOS y Scientific Linux incorporan SELinux habilitado por defecto a la hora de la instalación del sistema operativo.  
-Una vez iniciado el sistema, SELinux realizará el etiquetado del disco duro. Consiste en asignar una etiqueta a cada objeto del sistema que irá asociada a una regla que permitirá o negará el acceso a un sujeto que pretenda acceder.
+SELinux se maneja por reglas de políticas, por ejemplo cuando un acceso de seguridad relevante se lleva a cabo, como un proceso que trata de abrir un archivo, la operación es interceptada. Si una regla de las políticas permite la operación, continúa, sino la operación se bloquea y el proceso recibe un error.  
+
+Las decisiones de SELinux, tales como permitir o negar accesos, son cacheadas. Este caché se conoce como **Caché Vector de Acceso (AVC)**. Las decisiones de cacheado disminuye la necesidad de que las reglas de las políticas sean chequeadas muy a menudo, lo que mejora el funcionamiento.   
+
+**Las reglas de políticas de SELinux no tienen efecto si las reglas DAC niegan el acceso primero.**
+
+
+<center>
+
+![](../img/avc_denied.png)
+
+</center>
+
+**Partes del mensaje**  
+
++ **avc: denied**:	Se denegó una operación.
++ **{ read }**:	Esta operación necesita los permisos read y write.  
++ **pid=1484**:	El proceso con PID 1484 ejecutó la operación (o intentó hacerlo).
++ **comm="httpd"**:	Este proceso es una instancia del servidor httpd.
++ **name="myconf.conf"**:	El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable «path» con una ruta completa.
++ **dev=dm-0**:	El dispositivo que alberga el objeto destino es un dm-0, un dispositivo lógico LVM.
++ **ino=794975**:	El objeto está identificado por el número de inodo 794975.
++ **scontext=system_u:system_r:httpd_t:s0**:	Este es el contexto de seguridad del proceso que ejecutó la operación.
++ **tcontext=unconfined_u:object_r:user_home_t:s0**:	Este es el contexto de seguridad del objeto destino.
++ **tclass=file**:	El objeto destino es un archivo.
++ **permissive=0**: El modo de operación permissive está desactivado.
+
 
 **Ejemplo de una regla**
 
@@ -77,29 +130,6 @@ El **usuario gustavo** intenta cambiar el puerto 22 por defecto del servidor SSH
 
 En caso de que exista se permitirá el cambio, sino se negrá el cambio y se generará un mensaje de error al AVC(Caché de Control de Acceso) que contiene los permisos objeto y sujeto bajo control.
 
-#### AVC Caché de Control de Acceso
-
-Contiene los permisos objeto y sujeto bajo control. Es donde se generan los mensajes de error cuando una regla deniegue el acceso de un sujeto a un objeto.
-
-<center>
-
-![](../img/avc_denied.png)
-
-</center>
-
-**Partes del mensaje**  
-
-+ **avc: denied**:	Se denegó una operación.
-+ **{ read }**:	Esta operación necesita los permisos read y write.  
-+ **pid=1484**:	El proceso con PID 1484 ejecutó la operación (o intentó hacerlo).
-+ **comm="httpd"**:	Este proceso es una instancia del servidor httpd.
-+ **name="myconf.conf"**:	El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable «path» con una ruta completa.
-+ **dev=dm-0**:	El dispositivo que alberga el objeto destino es un dm-0, un dispositivo lógico LVM.
-+ **ino=794975**:	El objeto está identificado por el número de inodo 794975.
-+ **scontext=system_u:system_r:httpd_t:s0**:	Este es el contexto de seguridad del proceso que ejecutó la operación.
-+ **tcontext=unconfined_u:object_r:user_home_t:s0**:	Este es el contexto de seguridad del objeto destino.
-+ **tclass=file**:	El objeto destino es un archivo.
-+ **permissive=0**: El modo de operación permissive está desactivado.
 
 #### Como es su estructura: MAC VS DAC
 
