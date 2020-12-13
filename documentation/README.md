@@ -10,8 +10,9 @@
   + [Introducción](#Introducción)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona)
-    + [Estructura](#Como-es-su-estructura:-MAC-VS-DAC)
+    + [Controles de Acceso](#Tipos-de-control-de-acceso)
       + [Modos de operación](#Modos-de-operación)
+    + [Políticas](#Tipos-de-política)
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
 + [Proceso Práctico](#Proceso-Práctico)
@@ -50,8 +51,10 @@ Los mecanismos DAC son fundamentalmente inadecuados para una fuerte seguridad de
 SELinux en cambio agrega una **arquitectura de Control de Acceso Obligatorio (MAC)** al kernel de Linux y las distribuciones GNU/Linux Fedora, Red Hat Enterprise Linux, CentOS y Scientific Linux incorporan SELinux habilitado por defecto a la hora de la instalación del sistema operativo.
 
 
+Esta arquitectura aplica una política de seguridad puesta administrativamente sobre todos los procesos y archivos del sistema, basando decisiones en las etiquetas que contienen información variada relevante para la seguridad. Estas etiquetas se asignan cuando se inicia el sistema y se llama proceso de etiquetado. El modelo MAC permite la ejecución a salvo de aplicaciones no confiables, hace que la información esté protegida de los usuarios legítimos con autorización limitada, así como de usuarios autorizados que involuntariamente ejecutaron aplicaciones maliciosas.  
 
-Esta arquitectura necesita la habilidad de aplicar una política de seguridad puesta administrativamente sobre todos los procesos y archivos del sistema, basando decisiones en las etiquetas que contienen información variada relevante para la seguridad. El modelo MAC permite la ejecución a salvo de aplicaciones no confiables, hace que la información esté protegida de los usuarios legítimos con autorización limitada, así como de usuarios autorizados que involuntariamente ejecutaron aplicaciones maliciosas.  
+En el caso de que se quiera hacer un reetiquetado del sistema, se creará un fichero vacío llamado **.autorelabel** en el directorio raíz y después se reiniciará el sistema para completar el proceso.
+
 
 Ejemplo de las etiquetas que contienen información de seguridad relevante que se usa en los procesos, usuarios Linux y archivos, en sistemas operativos Linux que corren SELinux. Esta información se llama contexto de SELinux y se visualiza usando el comando **ls -Z**:  
 ```
@@ -67,6 +70,19 @@ Las reglas de políticas de SELinux se chequean después de las reglas DAC, en c
 ![](../aux/presentacion/etiqueta.png)
 
 </center>
+
+**Partes de una etiqueta**
+
+```
+Usuario - Identidad del usuario SELinux. Cada usuario del sistema se mapea a un usuario SELinux para limitar el acceso y estos se identifican con el sufijo _u.
+
+Rol - Forma parte del Control de Acesso Basado en Roles (RBAC). Limita el acceso de un usuario del sistema que tenda un determinado rol de SELinux. Por defecto todos tienen el rol object_r y se identifican con el sufijo _r.
+
+Tipo - Determina los permisos de acceso, es decir, la política de seguridad a usar. El tipo de objeto de un proceso se llama domininio y se identifican con el sufijo _t.
+
+Nivel -  Son extensiones que permiten un control aún más preciso mediante un etiquetado adicional con dos entidades: sensibilidad y categoría.
+
+```
 
 El **nivel** es opcional y el **tipo** es el aspecto más importante de la **Política Específica**. El **usuario, rol y nivel** se utilizan en implementaciones más avanzadas de SELinux, como la **Seguridad Multinivel (MLS)**.
 
@@ -105,7 +121,9 @@ Estas políticas se guardan en el fichero **/etc/selinux/targeted/policy/policy.
 
 <center>
 
-![](../img/avc_denied.png)
+![](../img/avc_denied.png)  
+
+Los mensajes de error se puede visualizar en el fichero **/var/log/messages**.
 
 </center>
 
@@ -124,17 +142,7 @@ Estas políticas se guardan en el fichero **/etc/selinux/targeted/policy/policy.
 + **permissive=0**: El modo de operación permissive está desactivado.
 
 
-
-
-En el caso de que se quiera hacer un reetiquetado del sistema, se creará un fichero vacío llamado **.autorelabel** en el directorio raíz y después se reiniciará el sistema para que se inicie el reetiquetado.
-
-Cuando un sujeto intenta acceder a un objeto SELinux utiliza la base de datos de las políticas para autorizar o denegar el acceso. En caso de que se deniegue el acceso se registra y se guarda en un log en el sistema en el fichero **/var/log/messages**.
-
-
-
-
-
-#### Como es su estructura: MAC VS DAC
+#### Tipos de control de acceso
 
 Tradicionalmente, los sistemas Linux y UNIX utilizan DAC. SELinux es un ejemplo de un sistema MAC para Linux.
 
@@ -152,12 +160,15 @@ SELinux puede trabajar en tres modos de configuración:
 
 3. **Enforcing**: Carga las políticas definidas y permite o niega el acceso a objetos del sistema. Este es el modo que recomiendan para entornos de producción.
 
+#### Tipos de políticas
+
+SELinux incorpora dos tipos de políticas:
+
+**Política Específica**: sólo los procesos que cuenten con una política de seguridad están bajo el control SELinux, por ejemplo, algunos procesos relevantes, como apache, nginx, dns, proxy squid, snmp y syslog. Es la política por defecto y proporciona un control bastante eficaz y sencillo. Los procesos sin una política quedan fuera del contexto de seguridad de SELinux y sobre ellos se aplica la seguridad estándar de Linux (DAC).  
+
+**Política multi-nivel/multi-categoria (MLS/MCS)**: habilita la seguridad multi-nivel o multi-categoría.
+
 #### Como se configura y que ficheros utiliza
-
-Hay muchas formas de configurar SELinux para proteger el sistema. Las más comunes son:
-
-- **Política específica** : es la opción predeterminada y comprende una serie de procesos, tareas y servicios.
-- **Seguridad de varios niveles (MLS)**: es muy compleja y, generalmente, solo la utilizan los organismo gubernamentales.
 
 Para saber con qué configuración se ejecuta el sistema, basta con consultar el archivo **/etc/sysconfig/selinux**. El archivo contendrá una sección donde se indicará si SELinux se encuentra en modo enforcing, permissive o disabled, y qué política se debería cargar targeted, minimum o mls .
 
