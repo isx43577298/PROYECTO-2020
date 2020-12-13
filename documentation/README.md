@@ -49,6 +49,8 @@ Los mecanismos DAC son fundamentalmente inadecuados para una fuerte seguridad de
 
 SELinux en cambio agrega una **arquitectura de Control de Acceso Obligatorio (MAC)** al kernel de Linux y las distribuciones GNU/Linux Fedora, Red Hat Enterprise Linux, CentOS y Scientific Linux incorporan SELinux habilitado por defecto a la hora de la instalación del sistema operativo.
 
+
+
 Esta arquitectura necesita la habilidad de aplicar una política de seguridad puesta administrativamente sobre todos los procesos y archivos del sistema, basando decisiones en las etiquetas que contienen información variada relevante para la seguridad. El modelo MAC permite la ejecución a salvo de aplicaciones no confiables, hace que la información esté protegida de los usuarios legítimos con autorización limitada, así como de usuarios autorizados que involuntariamente ejecutaron aplicaciones maliciosas.  
 
 Ejemplo de las etiquetas que contienen información de seguridad relevante que se usa en los procesos, usuarios Linux y archivos, en sistemas operativos Linux que corren SELinux. Esta información se llama contexto de SELinux y se visualiza usando el comando **ls -Z**:  
@@ -75,10 +77,31 @@ El **nivel** es opcional y el **tipo** es el aspecto más importante de la **Pol
 
 SELinux se maneja por reglas de políticas, por ejemplo cuando un acceso de seguridad relevante se lleva a cabo, como un proceso que trata de abrir un archivo, la operación es interceptada. Si una regla de las políticas permite la operación, continúa, sino la operación se bloquea y el proceso recibe un error.  
 
+**Ejemplo de una regla**
+
+<center>
+
+![](../img/regla.png)
+
+Regla que establece el puerto por el cual se puede acceder al servidor **SSHD**.
+
+</center>
+
 Las decisiones de SELinux, tales como permitir o negar accesos, son cacheadas. Este caché se conoce como **Caché Vector de Acceso (AVC)**. Las decisiones de cacheado disminuye la necesidad de que las reglas de las políticas sean chequeadas muy a menudo, lo que mejora el funcionamiento.   
+
+<center>
+
+![](../img/como_funciona_selinux.png)
+
+
+Estas políticas se guardan en el fichero **/etc/selinux/targeted/policy/policy.[version]**
+
+</center>
 
 **Las reglas de políticas de SELinux no tienen efecto si las reglas DAC niegan el acceso primero.**
 
+
+**Ejemplo de un mensaje de error**
 
 <center>
 
@@ -101,34 +124,14 @@ Las decisiones de SELinux, tales como permitir o negar accesos, son cacheadas. E
 + **permissive=0**: El modo de operación permissive está desactivado.
 
 
-**Ejemplo de una regla**
 
-<center>
-
-![](../img/regla.png)
-
-Regla que establece el puerto por el cual se puede acceder al servidor **SSHD**.
-
-</center>
 
 En el caso de que se quiera hacer un reetiquetado del sistema, se creará un fichero vacío llamado **.autorelabel** en el directorio raíz y después se reiniciará el sistema para que se inicie el reetiquetado.
 
 Cuando un sujeto intenta acceder a un objeto SELinux utiliza la base de datos de las políticas para autorizar o denegar el acceso. En caso de que se deniegue el acceso se registra y se guarda en un log en el sistema en el fichero **/var/log/messages**.
 
-<center>
-
-![](../img/como_funciona_selinux.png)
 
 
-Estas políticas se guardan en el fichero **/etc/selinux/targeted/policy/policy.[version]**
-
-</center>
-
-##### Ejemplo
-
-El **usuario gustavo** intenta cambiar el puerto 22 por defecto del servidor SSHD, por ejemplo al puerto 2222. SELinux irá a buscar al base de datos de las políticas para verificar si existe una regla que permita abrir el puerto nuevo para el servidor.
-
-En caso de que exista se permitirá el cambio, sino se negrá el cambio y se generará un mensaje de error al AVC(Caché de Control de Acceso) que contiene los permisos objeto y sujeto bajo control.
 
 
 #### Como es su estructura: MAC VS DAC
