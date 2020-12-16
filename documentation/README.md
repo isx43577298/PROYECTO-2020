@@ -10,9 +10,8 @@
   + [Introducción](#Introducción)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona)
-    + [Controles de Acceso](#Tipos-de-control-de-acceso)
-      + [Modos de operación](#Modos-de-operación)
     + [Políticas](#Tipos-de-política)
+      + [Modos de operación](#Modos-de-operación)
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
 + [Proceso Práctico](#Proceso-Práctico)
@@ -142,13 +141,13 @@ Los mensajes de error se puede visualizar en el fichero **/var/log/messages**.
 + **permissive=0**: El modo de operación permissive está desactivado.
 
 
-#### Tipos de control de acceso
+#### Tipos de políticas
 
-Tradicionalmente, los sistemas Linux y UNIX utilizan DAC. SELinux es un ejemplo de un sistema MAC para Linux.
+SELinux incorpora dos tipos de políticas:
 
-Con DAC, los archivos y los procesos tienen propietarios, que pueden ser usuarios, grupos o cualquier persona. Los usuarios pueden cambiar los permisos de sus propios archivos. Con un sistema DAC, el usuario raíz tiene control de acceso total. El acceso raíz le permite acceder a los archivos de cualquier otro usuario o ejecutar cualquier otra acción en el sistema.
+**Política Específica**: sólo los procesos que cuenten con una política de seguridad están bajo el control SELinux, por ejemplo, algunos procesos relevantes, como apache, nginx, dns, proxy squid, snmp y syslog. Es la política por defecto y proporciona un control bastante eficaz y sencillo. Los procesos sin una política quedan fuera del contexto de seguridad de SELinux y sobre ellos se aplica la seguridad estándar de Linux (DAC).  
 
-Sin embargo, en los sistemas MAC, como SELinux, hay una política de acceso establecida a nivel administrativo. Incluso si se modifica la configuración del DAC en el directorio principal, la política de SELinux establecida protegerá el sistema e impedirá que otro usuario o proceso acceda al directorio. Las políticas de SELinux le permiten ser específico y abarcar una gran cantidad de procesos. Puede realizar modificaciones con SELinux para limitar el acceso entre usuarios, archivos, directorios y más.
+**Política multi-nivel/multi-categoria (MLS/MCS)**: habilita la seguridad multi-nivel o multi-categoría.
 
 ##### Modos de operación
 
@@ -160,13 +159,7 @@ SELinux puede trabajar en tres modos de configuración:
 
 3. **Enforcing**: Carga las políticas definidas y permite o niega el acceso a objetos del sistema. Este es el modo que recomiendan para entornos de producción.
 
-#### Tipos de políticas
 
-SELinux incorpora dos tipos de políticas:
-
-**Política Específica**: sólo los procesos que cuenten con una política de seguridad están bajo el control SELinux, por ejemplo, algunos procesos relevantes, como apache, nginx, dns, proxy squid, snmp y syslog. Es la política por defecto y proporciona un control bastante eficaz y sencillo. Los procesos sin una política quedan fuera del contexto de seguridad de SELinux y sobre ellos se aplica la seguridad estándar de Linux (DAC).  
-
-**Política multi-nivel/multi-categoria (MLS/MCS)**: habilita la seguridad multi-nivel o multi-categoría.
 
 #### Como se configura y que ficheros utiliza
 

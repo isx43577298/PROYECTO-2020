@@ -1,10 +1,10 @@
 # COMPROBACIONES EJEMPLO 2
 
-- Objetivo: demostración del funcionamiento del modo de operación **Permissive** utilizando el servicio **SSHD**
+- Objetivo: demostración del funcionamiento del modo de operación **Permissive** utilizando el servicio **SSHD**.
 
 ## Explicación
 
-El modo Permissive de SELinux no realiza ninguna acción de negación de acceso, solo las registra en los logs del sistema. 
+El modo Permissive de SELinux no realiza ninguna acción de negación de acceso, solo las registra en los logs del sistema.
 
 Utilizaré el mismo servicio que en el ejemplo 1, el **SSHD**. En este caso al cambiar el puerto por defecto (22) del servicio por uno nuevo (2222) SELinux no negará este cambio aunque no haya una regla definida y por lo tanto podré conectarme desde otra terminal remotamente por el puerto 2222.
 
@@ -29,7 +29,3 @@ Utilizaré el mismo servicio que en el ejemplo 1, el **SSHD**. En este caso al c
 **5. Conectarse a la máquina virtual por el puerto nuevo**
 
 ![](../img/2_ejemplo/conexion_puerto2222.png)
-
-
-
-

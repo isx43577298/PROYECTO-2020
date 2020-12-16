@@ -1,12 +1,14 @@
 # EJEMPLO 1
 
-- Objetivo: demostración del funcionamiento del modo de operación **Enforcing** utilizando el servicio **SSHD**
+- Objetivo: Demostración del funcionamiento del modo de operación **Enforcing** utilizando el servicio **SSHD** y la orden de gestión **semanage**, que se utilizará para crear una regla que permitirá el cambio del puerto del servicio.
 
 ## Explicación
 
-El modo Enforcing de SELinux sigue a raja tabla las reglas definidas en el sistema, en el caso de que queramos realizar una acción que no se encuentra en ninguna regla, SELinux nos negará el acceso. 
+El modo Enforcing de SELinux sigue a raja tabla las reglas definidas en el sistema, en el caso de que queramos realizar una acción que no se encuentra en ninguna regla, SELinux nos negará el acceso.
 
-En este caso realizaré pruebas con el servicio SSHD, existe una regla que dicta que el servicio escuche por el puerto 22, al modificar el puerto por el 2222 SELinux negará el acceso porque no existe una regla que dicte esto. Para permitir el acceso por el puerto 2222 crearé una regla con el comando semanage que lo permita i así podremos conectarnos remotamente por el puerto nuevo.
+En este caso realizaré pruebas con el servicio SSHD. Existe una regla que dicta que el servicio escuche por el puerto 22, al modificar el puerto por el 2222 SELinux negará el acceso porque no existe una regla que dicte esto.  
+
+Para permitir el acceso por el puerto 2222 crearé una regla con el comando semanage que lo permita i así podremos conectarnos remotamente por el puerto nuevo.
 
 ### Comprobaciones
 
@@ -38,13 +40,3 @@ En este caso realizaré pruebas con el servicio SSHD, existe una regla que dicta
 **7. Conectarse a la máquina virtual por el puerto 2222**
 
 ![](../img/1_ejemplo/1_connexion.png)
-
-
-
-
-
-
-
-
-
-
