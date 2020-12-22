@@ -10,7 +10,7 @@
   + [Introducción](#Introducción)
   + [Arquitectura](#Arquitectura)
     + [Funcionamiento](#Como-funciona)
-    + [Políticas](#Tipos-de-política)
+    + [Políticas](#Tipos-de-políticas)
       + [Modos de operación](#Modos-de-operación)
   + [Configuración](#Como-se-configura-y-que-ficheros-utiliza)
   + [Comandos](#Comandos)
