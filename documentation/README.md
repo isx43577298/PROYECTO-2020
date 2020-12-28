@@ -296,3 +296,11 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 [...]
 
 [Comprobaciones ejemplo 9](../aux/9-ejemplo.md)
+
+
+**Ejemplo 10**
+
+- ACL's
+- Demostración de las ordenes setfacl y getfacl
+
+[Comprobaciones ejemplo 10](../aux/10-ejemplo.md)
