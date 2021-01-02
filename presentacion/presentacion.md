@@ -30,7 +30,7 @@ SELinux responde fundamentalmente a la pregunta: ¿Puede un **sujeto** hacer **x
  - Se basa en reglas
  - Aplica su propio contexto de seguridad
  - Se gestionan las reglas con el comando **semanage**
- - Si se aplican las reglas DAC niegan primero el acceso las reglas MAC no se miran
+ - Si las reglas DAC niegan el acceso las reglas MAC no se aplican
 
 ### Tipos de política
 
@@ -41,9 +41,10 @@ Existen dos tipos de políticas:
 ### Política Específica
 
 - Es la política predeterminada
+- Cada etiqueta va asociada a una regla
 - El **tipo** es el aspecto más importante
 - El **nivel** es opcional
-- Cada etiqueta va asociada a una regla
+
 
 ![](../aux/presentacion/selinux_etiqueta.png)
 
