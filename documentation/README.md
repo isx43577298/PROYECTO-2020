@@ -217,8 +217,11 @@ Crearé una maquina virtual en KVM(Kernel-based Virtual Machine) con la imagen d
 
 - Servidor SSHD
 - Modo de operación de SELinux: **Enforcing**
+- Gestión de reglas
+  - Orden: **semanage**
 
 En este ejemplo demostraré como el modo de operación Enforcing permite o niega el acceso a objetos del sistema según las políticas definidas por defecto utilizando el servicio SSHD.
+
 
 [Comprobaciones ejemplo 1](../aux/1-ejemplo.md)
 
@@ -227,6 +230,8 @@ En este ejemplo demostraré como el modo de operación Enforcing permite o niega
 
 - Servidor SSHD
 - Modo de operación de SELinux: **Permissive**
+- Gestión de reglas
+  - Orden: **semanage**
 
 En este ejemplo demostraré como el modo de operación Permissive solo registra las acciones denegadas pero las ejecuta igualmente utilizando el servicio SSHD.
 
@@ -254,6 +259,7 @@ En este ejemplo mostraré como encontrar en los logs cuando queremos que el serv
 
 - LDAP y PHPLDAPADMIN
 - Modo de operación de SELinux: **Enforcing**
+
 
 En este ejemplo mostraré como SELinux niega el acceso a **LDAP** utilizando la herramienta de interfaz gráfica **PHPLDAPADMIN**, cuando SELinux opere en modo **Enforcing**.
 
@@ -284,7 +290,8 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 - Wordpress
 - Modo de operacion de SELinux: **Enforcing**
 
-[...]
+En este ejemplo mostraré como instalar Wordpress cuando esté activo el modo de operación **Enforcing** de SELinux, cambiando el contexto de seguridad de los archivos de configuración.
+
 
 [Comprobaciones ejemplo 8](../aux/8-ejemplo.md)
 
@@ -293,7 +300,7 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 - Moddle
 - Modo de operacion de SELinux: **Enforcing**
 
-[...]
+En este ejemplo mostraré como instalar Moodle cuando esté activo el modo de operación **Enforcing** de SELinux, cambiando el contexto de seguridad de los archivos de configuración.
 
 [Comprobaciones ejemplo 9](../aux/9-ejemplo.md)
 
@@ -302,5 +309,7 @@ En este ejemplo mostraré como SELinux no permite el acceso a **LDAP** utilizand
 
 - ACL's
 - Demostración de las ordenes setfacl y getfacl
+
+En este ejemplo mostraré el comportamiento de las ACL en tres situaciones diferentes y como actúan las reglas **DAC** y **MAC**.
 
 [Comprobaciones ejemplo 10](../aux/10-ejemplo.md)

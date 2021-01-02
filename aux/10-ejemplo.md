@@ -38,7 +38,21 @@ Recordemos que las reglas DAC actúan primero, en caso de que estas permitan el 
 
 ![](../img/10_ejemplo/situacion_2.png)
 
-**Si se añaden ACL permitiendo a un sujeto acceder a un objeto aunque las reglas DAC digan lo contrario se permitirá el acceso**
+**Si se añaden ACL permitiendo a un sujeto acceder a un objeto, aunque las reglas DAC digan lo contrario se permitirá el acceso**
 
 
 ## Situación 3
+
+1. Tenemos un archivo llamado adios.txt en el directorio home del usuario gus el cual es el propietario con los siguientes permisos:
+
+![](../img/10_ejemplo/adios_3.png)
+
+2. Asignamos un ACL que deniegue al propietario la edición del fichero.
+
+![](../img/10_ejemplo/acl_3.png)
+
+3. Comprobamos que la ACL no tiene ningún efecto, ya que las ACL solo actúan contra usuarios que no son propietarios de ningún objeto al cual se aplica la ACL.
+
+![](../img/10_ejemplo/3.png)
+
+**Con este ejemplo se demuestra que las reglas DAC actúan antes que las reglas MAC**
