@@ -2,7 +2,7 @@
 # Gustavo Tello
 # EDT M14 PROYECTO: SELINUX
 # 28/05/2020
-# Description: modifica la carpeta por defecto "var/www/html" del 
+# Description: modifica la carpeta por defecto "var/www/html" del
 # servicio HTTPD y muestra los logs del propio servicio y del sistema
 ########################################################################
 
@@ -13,10 +13,10 @@
 setenforce 0
 getenforce
 
-# 2. Comentar la linea "Include /home/gus/apache/myconf.conf" del fichero "etc/httpd/conf/httpd.conf" i descomentar "Include conf.d/*.conf"
+# 2. Comentar la linea "Include /home/gus/apache/myconf.conf" del fichero "etc/httpd/conf/httpd.conf" y descomentar "Include conf.d/*.conf"
 vim /etc/httpd/conf/httpd.conf
 
-# 3. Restablecer las etiquetas por defecto de la carpeta apache i www que están en el directorio home del usuario gus
+# 3. Restablecer las etiquetas por defecto de la carpeta apache y www que están en el directorio home del usuario gus
 restorecon -R -v ~gus/apache/
 restorecon -R -v ~gus/www/
 
@@ -29,9 +29,3 @@ telnet 192.168.122.112 80 # GET / HTTP/1.0
 
 # 6. Mirar los logs del sistema
 tail /var/log/messages
-
-
-
-
-
-

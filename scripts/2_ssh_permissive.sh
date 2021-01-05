@@ -2,9 +2,9 @@
 # Gustavo Tello
 # EDT M14 PROYECTO: SELINUX
 # 25/05/2020
-# Description: modifica el puerto SSHD actual(22) por uno nuevo(2222)
-# y verifica si se ha podido realizar cuando SELinux se encuentre
-# en modo de operación Permissive
+# Description: Ejemplo de manipulación de reglas.
+# Demostración de como manipular el puerto por defecto del servicio SSHD
+# en el modo de operación Permissive.
 ####################################################
 
 # SSHD PERMISSIVE

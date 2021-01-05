@@ -2,9 +2,10 @@
 # Gustavo Tello
 # EDT M14 PROYECTO: SELINUX
 # 25/05/2020
-# Description: modifica el puerto SSHD actual(22) por uno nuevo(2222)
-# y verifica si se ha podido realizar cuando SELinux se encuentre
-# en modo de operación Enforcing
+# Description: Ejemplo de manipulación de reglas.
+# Demostración de como manipular el puerto por defecto del servicio SSHD
+# en el modo de operación Enforcing, creando una nueva regla con el comando
+# semanage.
 #####################################################################
 
 # Problema SSHD ENFORCING
@@ -25,9 +26,7 @@ grep "Port 2222" /etc/ssh/sshd_config
 systemctl restart sshd
 
 
-
 ########################################################################
-
 
 # Solución SSHD ENFORCING
 

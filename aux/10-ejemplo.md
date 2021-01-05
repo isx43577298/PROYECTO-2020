@@ -19,7 +19,7 @@ Recordemos que las reglas DAC actúan primero, en caso de que estas permitan el 
 
 ![](../img/10_ejemplo/acll.png)
 
-3. Comprobamos que las ACL actúan denegando la escritura al usuario maria.
+3. Comprobamos que las ACL deniegan la escritura al usuario maria.
 
 ![](../img/10_ejemplo/lectura.png)
 
@@ -30,11 +30,11 @@ Recordemos que las reglas DAC actúan primero, en caso de que estas permitan el 
 
 ![](../img/10_ejemplo/adios.png)
 
-2. Asignamos una ACL que solo permita al usuario maria leer, editar y ejecutar el archivo.
+2. Asignamos una ACL que permita al usuario maria leer y editar archivo.
 
 ![](../img/10_ejemplo/maria_rw.png)
 
-3. Comprobamos que las ACL actúan y permite la lectura y escritura al usuario maria.
+3. Comprobamos que las ACL permiten la lectura y escritura al usuario maria.
 
 ![](../img/10_ejemplo/situacion_2.png)
 

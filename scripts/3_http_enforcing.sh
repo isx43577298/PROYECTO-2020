@@ -35,21 +35,21 @@ vim /etc/httpd/conf/httpd.conf
 # 6. Reinciar el servicio y comprobar que no funciona
 systemctl restart httpd
 
-# 7. Mirar los logs del servicio y del sistema
+# 7. Mirar los logs del sistema
 tail /var/log/messages | grep AVC
 
 
 
-##################################################################
+################################################################################
 
 # Solución HTTPD ENFORCING
 
-# 8. Mirar las etiquetas de la carpeta por defecto del servicio "/var/www/html" y del fichero de configuración
+# 8. Comparar las etiquetas del fichero index.html original y el personalizado
 ls -lZ /var/www/html/index.html
-ls -lZ /etc/httpd/conf/httpd.conf
-
-# 9. Mirar las etiquetas de nuestros ficheros
 ls -lZ ~gus/www/html/index.html
+
+# 9. Comparar las etiquetas del fichero httpd.conf y el personalizado
+ls -lZ /etc/httpd/conf/httpd.conf
 ls -lZ ~gus/apache/myconf.conf
 
 # 10. Cambiar las etiquetas de nuestros ficheros
