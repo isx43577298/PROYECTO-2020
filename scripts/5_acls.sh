@@ -50,7 +50,7 @@ ls -l 2_ejemplo.txt
 ls -l 3_ejemplo.txt
 
 # 2. Asignar una ACL que solo permita al usuario gus la lectura del archivo. Verificar que se ha añadido correctamente la ACL.
-setfacl -m 'u:maria:rw' 3_ejemplo.txt
+setfacl -m 'u:gus:r' 3_ejemplo.txt
 getfacl 3_ejemplo.txt
 
 # 3. Comprobar que las ACL no actúa contra el propietario del fichero.
