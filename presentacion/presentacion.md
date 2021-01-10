@@ -49,7 +49,7 @@ Existen dos tipos de políticas:
 ### Política Específica: Etiqueta
 
 - Es el contexto de seguridad de todos los objetos y sujetos
-- Según el **tipo** de etiqueta se aplicará la regla que va asociada
+- Según el **tipo** de etiqueta se aplicará la regla a la que va asociada
 - Se gestionan con los comandos:
   - **restorecon**
   - **chcon**
@@ -59,10 +59,12 @@ Existen dos tipos de políticas:
 
 ![](../aux/presentacion/etiqueta.png)
 
+![](../aux/presentacion/root_rol.png)
+
 ### Política Específica: Reglas
 
 - Se gestionan con el comando **semanage**
-  -  Además gestionan los booleanos, los roles de usuarios y los niveles
+  -  Además gestionan los booleanos, los roles de usuarios y los niveles de seguridad
 - Van asociados al **tipo** de etiqueta del objeto
 - El mensaje de error de una regla se almacen en el AVC(Caché de Vector de Acceso)
 
