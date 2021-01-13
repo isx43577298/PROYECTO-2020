@@ -1,14 +1,18 @@
-### SELINUX (Security Enhaced Linux)
+### SELINUX (Linux de Seguridad Mejorada)
 
 ![](../aux/presentacion/selinuxxx.jpg)
 
 ### Introducción
 
-- Linux de Seguridad Mejorada
-- Modulo de seguridad de Linux
+- Modulo de seguridad
 - Aplica una capa de seguridad adicional al sistema
 - Viene habilitado por defecto a la hora de instalar el SO
-- Al iniciarse el sistema aplica su contexto de seguridad
+- Tiene 2 tipos de políticas: **Específica y MLS**
+- Tiene 3 modos de operación: **Enforcing, Permissive, Disabled**
+- Al iniciarse el sistema aplica su contexto de seguridad, llamado **etiqueta**
+- Utiliza **reglas** para restringir el acceso
+
+![](../aux/presentacion/selinux_etiqueta.png)
 
 ### Como funciona
 
@@ -16,40 +20,33 @@ SELinux responde fundamentalmente a la pregunta: ¿Puede un **sujeto** hacer **x
 
 ![](../aux/presentacion/esquema_selinuxx.png)
 
-### MAC vs DAC
+### Arquitecturas: MAC vs DAC
 
-- **DAC**
+- **Arquitectura DAC**
  - Se basa en propietarios y grupos
  - Utiliza los permisos clásicos de los sistemas UNIX
    - rwx
    - lectura, escritura, ejecución
  - Se gestionan los permisos con el comando **chmod**
 
-- **MAC**
+- **Arquitectura MAC**
  - Se basa en reglas
  - Aplica su propio contexto de seguridad
- - Si las reglas DAC niegan el acceso las reglas MAC no se aplican
+ - Si las permisos DAC niegan el acceso las reglas MAC no se aplican
  - Se gestionan las reglas con el comando **semanage**
 
 ### Tipos de política
 
-Existen dos tipos de políticas:
-- **Política Específica**
+Existen dos tipos de políticas:  
+- **Política Específica**  
 - **Política MLS**
-
-### Política Específica
-
-- Es la política predeterminada
-- Cada regla tiene asociada una etiqueta
-- El **tipo** es el aspecto más importante
-- El **nivel** es opcional
-
-![](../aux/presentacion/selinux_etiqueta.png)
 
 ### Política Específica: Etiqueta
 
 - Es el contexto de seguridad de todos los objetos y sujetos
+- El **tipo** de la etiqueta es el aspecto más importante
 - Según el **tipo** de etiqueta se aplicará la regla a la que va asociada
+- El **nivel** de la etiqueta es opcional
 - Se gestionan con los comandos:
   - **restorecon**
   - **chcon**
