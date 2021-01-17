@@ -4,5 +4,5 @@
 
 - Scripts 1-2 - Servicio **SSHD**
 - Scripts 3-4 - Servicio **HTTPD**
-- Scripts 5-6 - **LDAP - PHPLDAPADMIN** y servicio **HTTPD**
+- Scripts 5-6 - **ACL'S (MAC VS DAC)**
 
