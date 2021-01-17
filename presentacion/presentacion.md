@@ -16,7 +16,7 @@
 
 ### Como funciona
 
-SELinux responde fundamentalmente a la pregunta: ¿Puede un **sujeto** hacer **x accion** sobre un **objeto**?
+SELinux responde fundamentalmente a la pregunta: ¿Puede un **sujeto** hacer **x acción** sobre un **objeto**?
 
 ![](../aux/presentacion/esquema_selinuxx.png)
 
@@ -50,8 +50,9 @@ Existen dos tipos de políticas:
 - Se gestionan con los comandos:
   - **restorecon**
   - **chcon**
-- Para visualizar la etiqueta de un **objeto** se utiliza el comando **ls -Z**
-- Para visualizar la etiqueta de un **sujeto** se utiliza el comando **id -Z**
+- Para visualizar etiquetas usaremos los comandos:
+  - **ls -Z**
+  - **id -Z**
 - Crear un fichero llamado **.autorelabel** en el directorio raíz si se requiere un reetiquetado del sistema
 
 ![](../aux/presentacion/etiqueta.png)
@@ -61,9 +62,8 @@ Existen dos tipos de políticas:
 ### Política Específica: Reglas
 
 - Se gestionan con el comando **semanage**
-  -  Además gestionan los booleanos, los roles de usuarios y los niveles de seguridad
 - Van asociados al **tipo** de etiqueta del objeto
-- El mensaje de error de una regla se almacen en el AVC(Caché de Vector de Acceso)
+- El mensaje de error de una regla se almacena en el AVC(Caché de Vector de Acceso)
 
 ![](../aux/presentacion/politica.png)
 
@@ -73,7 +73,7 @@ Existen dos tipos de políticas:
 + **{ read }**:	Esta operación necesita los permisos read.  
 + **pid=1484**:	El proceso con PID 1484 ejecutó la operación (o intentó hacerlo).
 + **comm="httpd"**:	Este proceso es una instancia del servidor httpd.
-+ **name="myconf.conf"**:	El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable «path» con una ruta completa.
++ **name="myconf.conf"**:	El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable path con una ruta completa.
 + **dev=dm-0**:	El dispositivo que alberga el objeto destino es un dispositivo lógico LVM.
 + **ino=794975**:	El objeto está identificado por el número de inodo 794975.
 + **scontext=system_u:system_r:httpd_t:s0**:	Este es el contexto de seguridad del proceso que ejecutó la operación.
@@ -114,7 +114,7 @@ Existen dos tipos de políticas:
 ![](../aux/presentacion/mls.jpg)
 
 
-### Modos de Control y Operación III: Modos de Operación
+### Modos de Operación
 
 - **Enforcing:** Permite o niega el acceso a objetos guiándose por las reglas definidas por defecto
 
@@ -142,10 +142,6 @@ Existen dos tipos de políticas:
 - Solución para implementar virtualización completa con Linux
 
 ![](../aux/presentacion/KVM-logo.jpg)
-
-### Estructura proyecto: Como lo tengo montado?
-
-![](../aux/presentacion/esquema.png)
 
 ### Y eso es todo!
 

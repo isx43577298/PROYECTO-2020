@@ -22,22 +22,22 @@
 
 #### Información básica
 
-SELinux (Linux de Seguridad Mejorada) es una arquitectura de seguridad que viene integrado en el kernel Linux desde la version 2.6 que implementa módulos para mejorar la seguridad. Esta dirigida para administradores de servidores, quienes deben de implementar las políticas para otorgar o negar privilegios a un usuario sobre los objetos del sistema(archivos, puertos, sockets y otros procesos).
+SELinux (Linux de Seguridad Mejorada) es una arquitectura de seguridad que viene integrado en el kernel Linux desde la versión 2.6 que implementa módulos para mejorar la seguridad. Esta dirigida para administradores de servidores, quienes deben de implementar las políticas para otorgar o negar privilegios a un usuario sobre los objetos del sistema(archivos, puertos, sockets y otros procesos).
 
-No reemplaza el modelo tradicional de seguridad de Linux y sirve como complemento para cubrir los puntos debiles que existen en el sistema, por esta razon es importante no deshabilitarlo.
+No reemplaza el modelo tradicional de seguridad de Linux y sirve como complemento para cubrir los puntos débiles que existen en el sistema, por esta razón es importante no deshabilitarlo.
 
 #### Introducción
 
 Los archivos, directorios y dispositivos se llaman objetos. Los procesos, como un comando que ejecuta el usuario o la aplicación Mozilla Firefox, se llaman sujetos.  
 
-La mayoría de los sistemas operativos usan una **arquitectura de Control de Acceso Discrecional(DAC)**, que controla cómo interactuan los sujetos con los objetos, y cómo los sujetos interactuan entre sí, los usuarios controlan los permisos de archivos (**objetos**) de los que son dueños. Por ejemplo, en sistemas operativos Linux, los usuarios pueden hacer sus directorios legibles para el resto del mundo, dando a los usuarios y procesos (sujetos) acceso a información potencialmente sensible.  
+La mayoría de los sistemas operativos usan una **arquitectura de Control de Acceso Discrecional(DAC)**, que controla cómo interactúan los sujetos con los objetos, y cómo los sujetos interactúan entre sí, los usuarios controlan los permisos de archivos (**objetos**) de los que son dueños. Por ejemplo, en sistemas operativos Linux, los usuarios pueden hacer sus directorios legibles para el resto del mundo, dando a los usuarios y procesos (sujetos) acceso a información potencialmente sensible.  
 
 ```
 $ ls -l archivo1
 -rwxrw-r-- 1 usuario1 grupo1 0 2020-05-30 15:42 archivo1
 ```
 
-Los primeros tres bits de permisos, **r(lectura),w(escritura),x(ejecucion)**, controlan el acceso que el usuario Linux usuario1 (en este caso, el dueño) tiene para el archivo1. Los siguientes tres bits de permisos, rw-, controlan el acceso que el grupo Linux grupo1 tiene para el archivo1. Los últimos tres bits de permisos, r--, controlan el acceso que todo el mundo tiene para el archivo1, que incluyen a todos los usuarios y procesos.
+Los primeros tres bits de permisos, **r(lectura),w(escritura),x(ejecución)**, controlan el acceso que el usuario Linux usuario1 (en este caso, el dueño) tiene para el archivo1. Los siguientes tres bits de permisos, rw-, controlan el acceso que el grupo Linux grupo1 tiene para el archivo1. Los últimos tres bits de permisos, r--, controlan el acceso que todo el mundo tiene para el archivo1, que incluyen a todos los usuarios y procesos.
 
 Los mecanismos DAC son fundamentalmente inadecuados para una fuerte seguridad del sistema. Las decisiones de acceso DAC son sólo basadas en la identidad del usuario y su propiedad, ignorando información de seguridad relevante tal como el rol del usuario, la función y la confiabilidad del programa, y la sensibilidad e integridad de los datos. Cada usuario tiene completa discreción sobre sus archivos, haciendo imposible aplicar una política de seguridad a nivel de sistema. Más aún, cada programa que ejecuta un usuario hereda todos los permisos garantizados al usuario y es libre de cambiar el acceso de archivos del usuario, por lo que no se provee una protección contra software malicioso. Muchos servicios del sistema y programas privilegiados deben ejecutarse con privilegios más allá de lo que realmente necesitan, por lo que una brecha en cualquiera de estos programas se puede explotar para obtener acceso completo al sistema
 
@@ -75,9 +75,9 @@ Las reglas de políticas de SELinux se chequean después de las reglas DAC, en c
 ```
 Usuario - Identidad del usuario SELinux. Cada usuario del sistema se mapea a un usuario SELinux para limitar el acceso y estos se identifican con el sufijo _u.
 
-Rol - Forma parte del Control de Acesso Basado en Roles (RBAC). Limita el acceso de un usuario del sistema que tenda un determinado rol de SELinux. Por defecto todos tienen el rol object_r y se identifican con el sufijo _r.
+Rol - Forma parte del Control de Acceso Basado en Roles (RBAC). Limita el acceso de un usuario del sistema que tenga un determinado rol de SELinux. Por defecto todos tienen el rol object_r y se identifican con el sufijo _r.
 
-Tipo - Determina los permisos de acceso, es decir, la política de seguridad a usar. El tipo de objeto de un proceso se llama domininio y se identifican con el sufijo _t.
+Tipo - Determina los permisos de acceso, es decir, la política de seguridad a usar. El tipo de objeto de un proceso se llama dominio y se identifican con el sufijo _t.
 
 Nivel -  Son extensiones que permiten un control aún más preciso mediante un etiquetado adicional con dos entidades: sensibilidad y categoría.
 
@@ -298,7 +298,7 @@ En este ejemplo mostraré como instalar Wordpress cuando esté activo el modo de
 **Ejemplo 9**
 
 - Moddle
-- Modo de operacion de SELinux: **Enforcing**
+- Modo de operación de SELinux: **Enforcing**
 
 En este ejemplo mostraré como instalar Moodle cuando esté activo el modo de operación **Enforcing** de SELinux, cambiando el contexto de seguridad de los archivos de configuración.
 

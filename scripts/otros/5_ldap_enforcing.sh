@@ -2,7 +2,7 @@
 # Gustavo Tello
 # EDT M14 PROYECTO: SELINUX
 # 28/05/2020
-# Description: permite el acceso a LDAP utilizando la herramineta 
+# Description: permite el acceso a LDAP utilizando la herramienta 
 # gráfica PHPLDAPADMIN cuando SELinux opera en modo Enforcing
 #########################################################################
 

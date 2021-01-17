@@ -2,8 +2,8 @@
 # Gustavo Tello
 # EDT M14 PROYECTO: SELINUX
 # 28/05/2020
-# Description: modifica la carpeta por defecto "var/www/html" del
-# servicio HTTPD y muestra los logs del propio servicio y del sistema
+# Description: modifica la directiva por defecto "/var/www/html" del
+# servicio HTTPD y muestra el mensaje de error AVC
 ########################################################################
 
 
@@ -20,7 +20,7 @@ systemctl start httpd
 cat /var/www/html/index.html
 telnet 192.168.122.112 80 # GET / HTTP/1.0
 
-# 4. Crear la carpeta apache en el directorio home del usario gus y dentro el fichero de configuración personalizada myconf.conf
+# 4. Crear la carpeta apache en el directorio home del usario gus y dentro el fichero de configuración personalizado myconf.conf
 cd ~gus/apache
 cat myconf.conf
 

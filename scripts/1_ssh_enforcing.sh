@@ -17,8 +17,7 @@ getenforce
 # 2. Buscar la regla del puerto en el que trabaja el servicio SSHD
 semanage port -l | grep ssh
 
-# 3. Modificar el puerto del servicio en el fichero de configuración del server y
-# verificar que se ha cambiado la linea correctamente
+# 3. Modificar el puerto del servicio en el fichero de configuración del server y verificar que se ha cambiado la linea correctamente
 sed -i 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config
 grep "Port 2222" /etc/ssh/sshd_config
 

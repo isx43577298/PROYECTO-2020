@@ -29,49 +29,50 @@ Gustavo Tello
 </div>
 <div class="slide" id="TOC">
 <ul>
-<li><a href="#selinux-security-enhaced-linux">SELINUX (Security Enhaced Linux)</a></li>
+<li><a href="#selinux-linux-de-seguridad-mejorada">SELINUX (Linux de Seguridad Mejorada)</a></li>
 <li><a href="#introducción">Introducción</a></li>
 <li><a href="#como-funciona">Como funciona</a></li>
-<li><a href="#mac-vs-dac">MAC vs DAC</a></li>
+<li><a href="#arquitecturas-mac-vs-dac">Arquitecturas: MAC vs DAC</a></li>
 <li><a href="#tipos-de-política">Tipos de política</a></li>
-<li><a href="#política-específica">Política Específica</a></li>
 <li><a href="#política-específica-etiqueta">Política Específica: Etiqueta</a></li>
 <li><a href="#política-específica-reglas">Política Específica: Reglas</a></li>
 <li><a href="#política-específica-avc-caché-de-vector-de-acceso">Política Específica: AVC (Caché de Vector de Acceso)</a></li>
 <li><a href="#política-específica-booleanos">Política Específica: Booleanos</a></li>
 <li><a href="#política-específica-usuarios">Política Específica: Usuarios</a></li>
 <li><a href="#tipos-de-política-mls">Tipos de política: MLS</a></li>
-<li><a href="#modos-de-control-y-operación-iii-modos-de-operación">Modos de Control y Operación III: Modos de Operación</a></li>
+<li><a href="#modos-de-operación">Modos de Operación</a></li>
 <li><a href="#estructura-proyecto-problema-docker-i">Estructura proyecto: Problema Docker I</a></li>
 <li><a href="#estructura-proyecto-problema-docker-ii">Estructura proyecto: Problema Docker II</a></li>
 <li><a href="#estructura-proyecto-solución-kvm">Estructura proyecto: Solución KVM</a></li>
-<li><a href="#estructura-proyecto-como-lo-tengo-montado">Estructura proyecto: Como lo tengo montado?</a></li>
 <li><a href="#y-eso-es-todo">Y eso es todo!</a></li>
 </ul>
 </div>
-<div id="selinux-security-enhaced-linux" class="slide section level3">
-<h1>SELINUX (Security Enhaced Linux)</h1>
+<div id="selinux-linux-de-seguridad-mejorada" class="slide section level3">
+<h1>SELINUX (Linux de Seguridad Mejorada)</h1>
 <p><img src="../aux/presentacion/selinuxxx.jpg" /></p>
 </div>
 <div id="introducción" class="slide section level3">
 <h1>Introducción</h1>
 <ul>
-<li>Linux de Seguridad Mejorada</li>
-<li>Modulo de seguridad de Linux</li>
+<li>Modulo de seguridad</li>
 <li>Aplica una capa de seguridad adicional al sistema</li>
 <li>Viene habilitado por defecto a la hora de instalar el SO</li>
-<li>Al iniciarse el sistema aplica su contexto de seguridad</li>
+<li>Tiene 2 tipos de políticas: <strong>Específica y MLS</strong></li>
+<li>Tiene 3 modos de operación: <strong>Enforcing, Permissive, Disabled</strong></li>
+<li>Al iniciarse el sistema aplica su contexto de seguridad, llamado <strong>etiqueta</strong></li>
+<li>Utiliza <strong>reglas</strong> para restringir el acceso</li>
 </ul>
+<p><img src="../aux/presentacion/selinux_etiqueta.png" /></p>
 </div>
 <div id="como-funciona" class="slide section level3">
 <h1>Como funciona</h1>
 <p>SELinux responde fundamentalmente a la pregunta: ¿Puede un <strong>sujeto</strong> hacer <strong>x accion</strong> sobre un <strong>objeto</strong>?</p>
 <p><img src="../aux/presentacion/esquema_selinuxx.png" /></p>
 </div>
-<div id="mac-vs-dac" class="slide section level3">
-<h1>MAC vs DAC</h1>
+<div id="arquitecturas-mac-vs-dac" class="slide section level3">
+<h1>Arquitecturas: MAC vs DAC</h1>
 <ul>
-<li><strong>DAC</strong></li>
+<li><strong>Arquitectura DAC</strong></li>
 <li>Se basa en propietarios y grupos</li>
 <li>Utiliza los permisos clásicos de los sistemas UNIX
 <ul>
@@ -79,39 +80,36 @@ Gustavo Tello
 <li>lectura, escritura, ejecución</li>
 </ul></li>
 <li><p>Se gestionan los permisos con el comando <strong>chmod</strong></p></li>
-<li><strong>MAC</strong></li>
+<li><strong>Arquitectura MAC</strong></li>
 <li>Se basa en reglas</li>
 <li>Aplica su propio contexto de seguridad</li>
-<li>Si las reglas DAC niegan el acceso las reglas MAC no se aplican</li>
+<li>Si las permisos DAC niegan el acceso las reglas MAC no se aplican</li>
 <li><p>Se gestionan las reglas con el comando <strong>semanage</strong></p></li>
 </ul>
 </div>
 <div id="tipos-de-política" class="slide section level3">
 <h1>Tipos de política</h1>
-<p>Existen dos tipos de políticas: - <strong>Política Específica</strong> - <strong>Política MLS</strong></p>
-</div>
-<div id="política-específica" class="slide section level3">
-<h1>Política Específica</h1>
-<ul>
-<li>Es la política predeterminada</li>
-<li>Cada regla tiene asociada una etiqueta</li>
-<li>El <strong>tipo</strong> es el aspecto más importante</li>
-<li>El <strong>nivel</strong> es opcional</li>
-</ul>
-<p><img src="../aux/presentacion/selinux_etiqueta.png" /></p>
+<p>Existen dos tipos de políticas:<br />
+- <strong>Política Específica</strong><br />
+- <strong>Política MLS</strong></p>
 </div>
 <div id="política-específica-etiqueta" class="slide section level3">
 <h1>Política Específica: Etiqueta</h1>
 <ul>
 <li>Es el contexto de seguridad de todos los objetos y sujetos</li>
+<li>El <strong>tipo</strong> de la etiqueta es el aspecto más importante</li>
 <li>Según el <strong>tipo</strong> de etiqueta se aplicará la regla a la que va asociada</li>
+<li>El <strong>nivel</strong> de la etiqueta es opcional</li>
 <li>Se gestionan con los comandos:
 <ul>
 <li><strong>restorecon</strong></li>
 <li><strong>chcon</strong></li>
 </ul></li>
-<li>Para visualizar la etiqueta de un <strong>objeto</strong> se utiliza el comando <strong>ls -Z</strong></li>
-<li>Para visualizar la etiqueta de un <strong>sujeto</strong> se utiliza el comando <strong>id -Z</strong></li>
+<li>Para visualizar etiquetas usaremos los comandos:
+<ul>
+<li><strong>ls -Z</strong></li>
+<li><strong>id -Z</strong></li>
+</ul></li>
 <li>Crear un fichero llamado <strong>.autorelabel</strong> en el directorio raíz si se requiere un reetiquetado del sistema</li>
 </ul>
 <p><img src="../aux/presentacion/etiqueta.png" /></p>
@@ -120,10 +118,7 @@ Gustavo Tello
 <div id="política-específica-reglas" class="slide section level3">
 <h1>Política Específica: Reglas</h1>
 <ul>
-<li>Se gestionan con el comando <strong>semanage</strong>
-<ul>
-<li>Además gestionan los booleanos, los roles de usuarios y los niveles de seguridad</li>
-</ul></li>
+<li>Se gestionan con el comando <strong>semanage</strong></li>
 <li>Van asociados al <strong>tipo</strong> de etiqueta del objeto</li>
 <li>El mensaje de error de una regla se almacen en el AVC(Caché de Vector de Acceso)</li>
 </ul>
@@ -137,7 +132,7 @@ Gustavo Tello
 </li>
 <li><strong>pid=1484</strong>: El proceso con PID 1484 ejecutó la operación (o intentó hacerlo).</li>
 <li><strong>comm=“httpd”</strong>: Este proceso es una instancia del servidor httpd.</li>
-<li><strong>name=“myconf.conf”</strong>: El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable «path» con una ruta completa.</li>
+<li><strong>name=“myconf.conf”</strong>: El objeto de destino se llamaba myconf.conf. En ciertos casos también se puede tener una variable path con una ruta completa.</li>
 <li><strong>dev=dm-0</strong>: El dispositivo que alberga el objeto destino es un dispositivo lógico LVM.</li>
 <li><strong>ino=794975</strong>: El objeto está identificado por el número de inodo 794975.</li>
 <li><strong>scontext=system_u:system_r:httpd_t:s0</strong>: Este es el contexto de seguridad del proceso que ejecutó la operación.</li>
@@ -184,8 +179,8 @@ Gustavo Tello
 </ul>
 <p><img src="../aux/presentacion/mls.jpg" /></p>
 </div>
-<div id="modos-de-control-y-operación-iii-modos-de-operación" class="slide section level3">
-<h1>Modos de Control y Operación III: Modos de Operación</h1>
+<div id="modos-de-operación" class="slide section level3">
+<h1>Modos de Operación</h1>
 <ul>
 <li><p><strong>Enforcing:</strong> Permite o niega el acceso a objetos guiándose por las reglas definidas por defecto</p></li>
 <li><p><strong>Permissive:</strong> No realiza ninguna acción de denegación, solo registra las acciones no permitidas en los logs del sistema</p></li>
@@ -209,10 +204,6 @@ Gustavo Tello
 <li>Solución para implementar virtualización completa con Linux</li>
 </ul>
 <p><img src="../aux/presentacion/KVM-logo.jpg" /></p>
-</div>
-<div id="estructura-proyecto-como-lo-tengo-montado" class="slide section level3">
-<h1>Estructura proyecto: Como lo tengo montado?</h1>
-<p><img src="../aux/presentacion/esquema.png" /></p>
 </div>
 <div id="y-eso-es-todo" class="slide section level3">
 <h1>Y eso es todo!</h1>
